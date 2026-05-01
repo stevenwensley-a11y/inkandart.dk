@@ -1,0 +1,17 @@
+<header class="topbar" aria-label="Site status">
+{%- if page.url == "/" %}
+  <span>★ ESTD · KBH ★</span>
+  <span class="topbar__issue">VOL.01 / ISSUE.01 / 05.2026</span>
+  <span class="topbar__live">● ÅBENT SIDEN ’96</span>
+{%- elif page.url == "/privatlivspolitik/" %}
+  <span><a href="/" class="topbar__back" aria-label="Tilbage til forsiden">← {{ site.shortName | upper }}</a></span>
+  <span class="topbar__issue">PRIVATLIVSPOLITIK</span>
+  <span class="topbar__live">● SENEST OPDATERET 2026-05-01</span>
+{%- elif page.url == "/404.html" %}
+  <span><a href="/" class="topbar__back" aria-label="Tilbage til forsiden">← {{ site.shortName | upper }}</a></span>
+  <span class="topbar__issue">404 NOT FOUND</span>
+  <span class="topbar__live">● BAD URL</span>
+{%- else %}
+  <span>★ ESTD · KBH ★</span>
+{%- endif %}
+</header>

@@ -4,11 +4,23 @@ title: 404 — Siden findes ikke | Ink & Art Copenhagen
 permalink: /404.html
 eleventyExcludeFromCollections: true
 ---
-<section class="error-page">
-  <div class="container">
-    <h1>404</h1>
-    <p class="error-page__lead">Siden findes ikke.</p>
-    <p>Den side du ledte efter er måske flyttet — eller måske er du landet det forkerte sted.</p>
-    <a href="/" class="btn btn--primary">Tilbage til forsiden</a>
+<section class="hero hero--error">
+  <h1 class="hero__wordmark">
+    <span class="hero__wordmark-line">404</span>
+    <span class="hero__wordmark-cph">NOT&nbsp;FOUND<span class="dot">.</span></span>
+  </h1>
+
+  <div class="stamp stamp--red hero__stamp-1 hero__stamp--error" aria-hidden="true">DEAD&nbsp;LINK</div>
+
+  <div class="about-card">
+    <div class="about-card__file">// FILE: 404.TXT</div>
+    <p class="about-card__text">
+      Siden findes ikke. Måske er den flyttet, måske er det en typo.
+      <strong>Hovedet hænger lavt — vi ses på forsiden.</strong>
+    </p>
+    <div class="about-card__cta">
+      <a href="/" class="btn btn--primary">Tilbage til forsiden</a>
+      <a href="tel:{{ site.phoneIntl }}" class="btn btn--ghost">Ring {{ site.phone | replace(" ", "&nbsp;") | safe }}</a>
+    </div>
   </div>
 </section>

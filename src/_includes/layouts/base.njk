@@ -7,6 +7,8 @@
   <a href="#main" class="skip-link">Gå til indhold</a>
   <div class="grain" aria-hidden="true"></div>
 
+  {% include "partials/topbar.njk" %}
+
   <main id="main" tabindex="-1">
     {{- content | safe -}}
   </main>
