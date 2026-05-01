@@ -1,16 +1,21 @@
 <footer class="footer">
-  <div class="footer__brand">
-    INK &amp; ART <span class="footer__star" aria-hidden="true">★</span> CPH
+  <div class="footer__main">
+    <div class="footer__brand">
+      INK &amp; ART <span class="footer__star" aria-hidden="true">★</span> CPH
+    </div>
+    <nav class="footer__meta" aria-label="Kanaler">
+      <a href="{{ site.instagram }}" rel="noopener">Instagram</a>
+      <span aria-hidden="true">·</span>
+      <a href="{{ site.facebook }}" rel="noopener">Facebook</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://wa.me/{{ site.whatsapp | replace('+', '') | replace(' ', '') }}" rel="noopener">WhatsApp</a>
+      <span class="footer__sep" aria-hidden="true">|</span>
+      <a href="/privatlivspolitik/">Privatlivspolitik</a>
+      <span class="footer__sep" aria-hidden="true">|</span>
+      <span>© {{ "now" | date("%Y") }} · {{ site.address.street }}</span>
+    </nav>
   </div>
-  <nav class="footer__meta" aria-label="Kanaler">
-    <a href="{{ site.instagram }}" rel="noopener">Instagram</a>
-    <span aria-hidden="true">·</span>
-    <a href="{{ site.facebook }}" rel="noopener">Facebook</a>
-    <span aria-hidden="true">·</span>
-    <a href="https://wa.me/{{ site.whatsapp | replace('+', '') | replace(' ', '') }}" rel="noopener">WhatsApp</a>
-    <span class="footer__sep" aria-hidden="true">|</span>
-    <a href="/privatlivspolitik/">Privatlivspolitik</a>
-    <span class="footer__sep" aria-hidden="true">|</span>
-    <span>© {{ "now" | date("%Y") }} · {{ site.address.street }}</span>
-  </nav>
+  <div class="footer__credit">
+    Bygget af <a href="https://www.bygmedai.dk" rel="noopener">bygmedai.dk</a>
+  </div>
 </footer>

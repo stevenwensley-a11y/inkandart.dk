@@ -515,13 +515,12 @@ button:focus-visible {
   z-index: 3;
   background: var(--ink);
   color: var(--paper);
-  padding: 36px var(--pad-x);
+  padding: 36px var(--pad-x) 28px;
   border-top: 2px solid var(--ink);
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  gap: 16px;
-  justify-content: space-between;
-  align-items: center;
+  gap: 12px;
 }
 .footer__brand {
   font-family: var(--font-display);
@@ -542,6 +541,34 @@ button:focus-visible {
 }
 .footer__meta a:hover { color: var(--red-on-ink); }
 .footer__sep { padding: 0 4px; }
+.footer__main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 1 100%;
+}
+.footer__credit {
+  flex: 1 1 100%;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted-soft);
+  text-align: right;
+  padding-top: 16px;
+  margin-top: 4px;
+  border-top: 1px dashed rgba(146, 141, 130, 0.2);
+}
+.footer__credit a {
+  color: var(--red-on-ink);
+  border-bottom: 1px dotted currentColor;
+}
+.footer__credit a:hover {
+  color: var(--paper);
+  border-bottom-color: var(--paper);
+}
 
 /* ----- 15. Cookie banner ----- */
 .cookie-banner {
