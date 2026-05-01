@@ -8,8 +8,7 @@
   "phone": "55 24 86 08",
   "phoneIntl": "+4555248608",
   "whatsapp": "+4550279123",
-  "email": "kontakt@inkandart.dk",
-  "emailFallback": "nizarsaad5@gmail.com",
+  "email": "nizarsaad5@gmail.com",
   "bookingUrl": "https://inkart.book.dk",
   "instagram": "https://www.instagram.com/ink.and.art.cph/",
   "instagramHandle": "@ink.and.art.cph",
@@ -35,5 +34,7 @@
   "owner": {
     "name": "Simone Chimere",
     "role": "Direktør"
-  }
+  },
+  "emailFuture": "kontakt@inkandart.dk",
+  "emailFutureNote": "Aktiveres når Simply webhotel-opgrade er bestilt"
 }

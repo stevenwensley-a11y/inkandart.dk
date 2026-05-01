@@ -38,7 +38,8 @@ All site content (name, contact, hours, links) lives in one JSON file. To update
 - [ ] Confirm opening hours (currently from FB, ~3 years stale)
 - [ ] 3-5 photos of tattoo work, atmosphere, or artists
 - [ ] Logo in original SVG/high-res PNG (currently using a JPG conversion)
-- [ ] Confirm phone `55 24 86 08` and email `kontakt@inkandart.dk`
+- [ ] Confirm phone `55 24 86 08`
+- [ ] Decide on `kontakt@inkandart.dk` email — currently mailto points directly at `nizarsaad5@gmail.com` (Simply free DNS does not include forwarding; webhotel upgrade ~75 kr/year enables `kontakt@inkandart.dk`)
 - [ ] Update Instagram bio to point at `inkandart.dk` (currently points at `inknart.dk` — different shop)
 
 ## v0.2 backlog
