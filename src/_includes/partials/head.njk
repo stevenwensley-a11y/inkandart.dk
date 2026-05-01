@@ -3,6 +3,10 @@
 <meta name="description" content="{{ site.description }}">
 <meta name="theme-color" content="#ece6da">
 
+<link rel="preload" as="image" href="/_assets/img/logo.png" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="/_assets/fonts/BebasNeue-Regular.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/_assets/fonts/SpaceMono-Regular.woff2" crossorigin>
+
 <title>{{ title or site.name }}</title>
 
 <link rel="canonical" href="{{ site.url }}{{ page.url }}">
@@ -28,10 +32,6 @@
 <meta name="twitter:description" content="{{ site.description }}">
 <meta name="twitter:image" content="{{ site.url }}/_assets/img/og-image.png">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="/_assets/css/style.css">
 
 {% if page.url == "/404.html" %}
@@ -43,7 +43,7 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "TattooParlor",
+      "@type": ["TattooParlor", "BeautySalon"],
       "@id": "{{ site.url }}/#business",
       "name": "{{ site.name }}",
       "url": "{{ site.url }}",
@@ -51,13 +51,20 @@
       "logo": "{{ site.url }}/_assets/img/logo.png",
       "description": "{{ site.description }}",
       "telephone": "{{ site.phoneIntl }}",
-      "priceRange": "$$",
+      "additionalType": "https://en.wikipedia.org/wiki/Body_piercing",
+      "areaServed": "Copenhagen",
+      "knowsLanguage": ["da", "en"],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "{{ site.address.street }}",
         "postalCode": "{{ site.address.postalCode }}",
         "addressLocality": "{{ site.address.city }}",
         "addressCountry": "{{ site.address.country }}"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 55.6792,
+        "longitude": 12.5710
       },
       "openingHoursSpecification": [
         {"@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "13:00", "closes": "23:00"},

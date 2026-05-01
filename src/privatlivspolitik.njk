@@ -24,7 +24,7 @@ permalink: /privatlivspolitik/
       Danmark
     </p>
     <p>
-      Henvendelser om persondata kan ske via telefon på <a href="tel:{{ site.phoneIntl }}">{{ site.phone }}</a> eller WhatsApp på <a href="https://wa.me/{{ site.whatsapp | replace('+', '') | replace(' ', '') }}" rel="noopener">{{ site.whatsapp }}</a>.
+      Henvendelser om persondata kan ske via telefon på <a href="tel:{{ site.phoneIntl }}">{{ site.phone | replace(" ", "&nbsp;") | safe }}</a> eller WhatsApp på <a href="https://wa.me/{{ site.whatsapp | replace('+', '') | replace(' ', '') }}" rel="noopener">{{ site.whatsapp }}</a>.
     </p>
 
     <h2>2. Hvilke oplysninger behandler vi?</h2>
