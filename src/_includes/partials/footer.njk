@@ -1,13 +1,14 @@
-<footer class="footer">
-  <div class="container">
-    <img src="/_assets/img/logo-small.png" alt="" class="footer__logo" width="50" height="62">
-    <p class="footer__name">{{ site.name }}</p>
-    <p class="footer__address">{{ site.address.street }}, {{ site.address.postalCode }} {{ site.address.city }}</p>
-    <p class="footer__phone"><a href="tel:{{ site.phoneIntl }}">{{ site.phone }}</a></p>
-    <nav class="footer__social" aria-label="Sociale medier">
-      <a href="{{ site.instagram }}" rel="noopener" target="_blank" aria-label="Instagram">Instagram</a>
-      <a href="{{ site.facebook }}" rel="noopener" target="_blank" aria-label="Facebook">Facebook</a>
-    </nav>
-    <p class="footer__copyright">© {{ "now" | date('%Y') }} {{ site.name }}</p>
+<footer class="footer" role="contentinfo">
+  <div class="footer__brand">
+    INK &amp; ART <span class="footer__star" aria-hidden="true">★</span> CPH
   </div>
+  <nav class="footer__meta" aria-label="Kanaler">
+    <a href="{{ site.instagram }}" rel="noopener">Instagram</a>
+    <span aria-hidden="true">·</span>
+    <a href="{{ site.facebook }}" rel="noopener">Facebook</a>
+    <span aria-hidden="true">·</span>
+    <a href="https://wa.me/{{ site.whatsapp | replace('+', '') | replace(' ', '') }}" rel="noopener">WhatsApp</a>
+    <span class="footer__sep" aria-hidden="true">|</span>
+    <span>© {{ "now" | date("%Y") }} · {{ site.address.street }}</span>
+  </nav>
 </footer>

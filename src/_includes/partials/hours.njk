@@ -1,14 +1,18 @@
-<section class="hours">
-  <div class="container">
-    <h2>Åbningstider</h2>
-    <table class="hours__table">
-      <tr><th>Mandag</th><td>{{ site.hours.monday }}</td></tr>
-      <tr><th>Tirsdag</th><td>{{ site.hours.tuesday }}</td></tr>
-      <tr><th>Onsdag</th><td>{{ site.hours.wednesday }}</td></tr>
-      <tr><th>Torsdag</th><td>{{ site.hours.thursday }}</td></tr>
-      <tr><th>Fredag</th><td>{{ site.hours.friday }}</td></tr>
-      <tr><th>Lørdag</th><td>{{ site.hours.saturday }}</td></tr>
-      <tr><th>Søndag</th><td>{{ site.hours.sunday }}</td></tr>
-    </table>
-  </div>
+<section class="hours card card--ink card--tilt-l" aria-labelledby="hours-heading">
+  <header class="hours__head">
+    <h2 id="hours-heading" class="hours__title">ÅBNINGSTIDER</h2>
+    <span class="hours__live">[LIVE]</span>
+  </header>
+
+  <dl class="hours__list">
+    <div class="hours__row"><dt>MAN</dt><dd>{{ site.hours.monday }}</dd></div>
+    <div class="hours__row"><dt>TIR</dt><dd>{{ site.hours.tuesday }}</dd></div>
+    <div class="hours__row"><dt>ONS</dt><dd>{{ site.hours.wednesday }}</dd></div>
+    <div class="hours__row"><dt>TOR</dt><dd>{{ site.hours.thursday }}</dd></div>
+    <div class="hours__row hours__row--late"><dt>FRE</dt><dd>{{ site.hours.friday }} ★</dd></div>
+    <div class="hours__row hours__row--late"><dt>LØR</dt><dd>{{ site.hours.saturday }} ★</dd></div>
+    <div class="hours__row"><dt>SØN</dt><dd>{{ site.hours.sunday }}</dd></div>
+  </dl>
+
+  <p class="hours__note">★ = nightshift // døren går altid op for nogen</p>
 </section>

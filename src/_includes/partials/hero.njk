@@ -1,16 +1,37 @@
+<header class="topbar" aria-label="Site status">
+  <span>★ ESTD · KBH ★</span>
+  <span class="topbar__issue">VOL.01 / ISSUE.01 / 05.2026</span>
+  <span class="topbar__live">● ÅBENT SIDEN ’96</span>
+</header>
+
 <section class="hero">
-  <div class="container">
-    <img src="/_assets/img/logo.png" alt="{{ site.name }} logo" class="hero__logo" width="240" height="296" fetchpriority="high">
-    <h1 class="hero__wordmark">{{ site.name }}</h1>
-    <p class="hero__tagline">{{ site.tagline }}</p>
-    <a href="{{ site.bookingUrl }}" class="btn btn--primary hero__cta" rel="noopener" target="_blank">Book tid</a>
-    <nav class="hero__social" aria-label="Sociale medier">
-      <a href="{{ site.instagram }}" rel="noopener" target="_blank" aria-label="Instagram">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-      </a>
-      <a href="{{ site.facebook }}" rel="noopener" target="_blank" aria-label="Facebook">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-      </a>
-    </nav>
+  <div class="hero__tape hero__tape--left" aria-hidden="true"></div>
+  <div class="hero__tape hero__tape--right" aria-hidden="true"></div>
+
+  <h1 class="hero__wordmark">
+    <span class="hero__wordmark-line">INK <span class="amp">&amp;</span> ART</span>
+    <span class="hero__wordmark-cph">COPENHAGEN<span class="dot">.</span></span>
+  </h1>
+
+  <img src="/_assets/img/logo.png"
+       alt="{{ site.name }} logo"
+       class="hero__logo"
+       width="200" height="200"
+       fetchpriority="high">
+
+  <div class="stamp stamp--red hero__stamp-1" aria-hidden="true">Walk-ins ok</div>
+  <div class="stamp stamp--ink hero__stamp-2" aria-hidden="true">No vegan ink</div>
+  <div class="stamp stamp--red hero__stamp-3" aria-hidden="true">Vol.01 · zine 01</div>
+
+  <div class="about-card">
+    <div class="about-card__file">// FILE: ABOUT.TXT</div>
+    <p class="about-card__text">
+      Tatovør- og piercingstudio på <strong>{{ site.address.street }}</strong> — hjertet af København.
+      Klassisk håndværk, fed attitude, sent åbent.
+    </p>
+    <div class="about-card__cta">
+      <a href="{{ site.bookingUrl }}" class="btn btn--primary" rel="noopener">Book tid →</a>
+      <a href="tel:{{ site.phoneIntl }}" class="btn btn--ghost">Ring {{ site.phone }}</a>
+    </div>
   </div>
 </section>

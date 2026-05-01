@@ -1,10 +1,16 @@
-<section class="locations">
-  <div class="container">
-    <h2>Hvor finder du os</h2>
-    <address class="location">
-      <strong>{{ site.address.street }}</strong><br>
-      {{ site.address.postalCode }} {{ site.address.city }}<br>
-      <a href="{{ site.address.mapsUrl }}" rel="noopener" target="_blank">Vis på kort →</a>
+<section class="info-grid" aria-labelledby="location-heading">
+
+  <article class="card card--paper card--tilt-r">
+    <div class="card__file">// LOCATION.MAP</div>
+    <h2 id="location-heading" class="card__title">{{ site.address.street | upper }}</h2>
+    <address class="card__address">
+      {{ site.address.postalCode }} {{ site.address.city | upper }} · DANMARK
     </address>
-  </div>
+    <a class="card__link" href="{{ site.address.mapsUrl }}" rel="noopener">
+      FIND DEN PÅ KORTET ↗
+    </a>
+  </article>
+
+  {% include "partials/contact.njk" %}
+
 </section>

@@ -3,8 +3,9 @@
 <head>
   {% include "partials/head.njk" %}
 </head>
-<body>
+<body class="paper">
   <a href="#main" class="skip-link">Gå til indhold</a>
+  <div class="grain" aria-hidden="true"></div>
 
   <main id="main" tabindex="-1">
     {{ content | safe }}

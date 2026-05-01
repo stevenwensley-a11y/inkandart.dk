@@ -1,12 +1,21 @@
-<section class="contact">
-  <div class="container">
-    <h2>Kontakt</h2>
-    <ul class="contact__list">
-      <li><span class="contact__label">Telefon</span> <a href="tel:{{ site.phoneIntl }}">{{ site.phone }}</a></li>
-      <li><span class="contact__label">WhatsApp</span> <a href="https://wa.me/{{ site.whatsapp | replace('+', '') | replace(' ', '') }}" rel="noopener" target="_blank">+45 50 27 91 23</a></li>
-      <li><span class="contact__label">Email</span> <a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-      <li><span class="contact__label">Instagram</span> <a href="{{ site.instagram }}" rel="noopener" target="_blank">{{ site.instagramHandle }}</a></li>
-    </ul>
-    <a href="{{ site.bookingUrl }}" class="btn btn--primary" rel="noopener" target="_blank">Book tid</a>
-  </div>
-</section>
+<article class="card card--red card--tilt-l" aria-labelledby="contact-heading">
+  <div class="card__file">// KONTAKT.DUMP</div>
+  <h2 id="contact-heading" class="visually-hidden">Kontakt</h2>
+
+  <ul class="contact__list">
+    <li>
+      <span aria-hidden="true">📞</span>
+      <a href="tel:{{ site.phoneIntl }}">{{ site.phone }}</a>
+    </li>
+    <li>
+      <span aria-hidden="true">💬</span>
+      <a href="https://wa.me/{{ site.whatsapp | replace('+', '') | replace(' ', '') }}" rel="noopener">WHATSAPP</a>
+    </li>
+    <li>
+      <span aria-hidden="true">✉</span>
+      <a href="mailto:{{ site.email }}">{{ site.email | upper }}</a>
+    </li>
+  </ul>
+
+  <a href="{{ site.bookingUrl }}" class="btn btn--ink" rel="noopener">Book tid →</a>
+</article>
