@@ -1,4 +1,4 @@
-<header class="topbar" aria-label="Site status">
+<header class="topbar" role="banner" aria-label="Site status">
   <span>★ ESTD · KBH ★</span>
   <span class="topbar__issue">VOL.01 / ISSUE.01 / 05.2026</span>
   <span class="topbar__live">● ÅBENT SIDEN ’96</span>
@@ -30,8 +30,8 @@
       Klassisk håndværk, fed attitude, sent åbent.
     </p>
     <div class="about-card__cta">
-      <a href="{{ site.bookingUrl }}" class="btn btn--primary" rel="noopener">Book tid →</a>
-      <a href="tel:{{ site.phoneIntl }}" class="btn btn--ghost">Ring {{ site.phone }}</a>
+      <a href="{{ site.bookingUrl }}" class="btn btn--primary" rel="noopener">Book tid <span aria-hidden="true">→</span></a>
+      <a href="tel:{{ site.phoneIntl }}" class="btn btn--ghost">Ring {{ site.phone | replace(" ", "&nbsp;") | safe }}</a>
     </div>
   </div>
 </section>

@@ -20,8 +20,9 @@ ul, ol { padding: 0; margin: 0; list-style: none; }
   --ink-soft:     #1a1815;
   --red:          #c8302d;
   --red-deep:     #a8201d;
+  --red-on-ink:   #e3625e;
   --muted:        #4a463e;
-  --muted-soft:   #7a756a;
+  --muted-soft:   #928d82;
 
   --font-display: "Bebas Neue", "Anton", Impact, sans-serif;
   --font-mono:    "Space Mono", "Courier New", ui-monospace, monospace;
@@ -124,7 +125,7 @@ button:focus-visible {
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
-.topbar__live { color: var(--red); }
+.topbar__live { color: var(--red-deep); }
 
 /* ----- 6. Buttons ----- */
 .btn {
@@ -254,7 +255,7 @@ button:focus-visible {
   font-family: var(--font-display);
   font-size: 13px;
   letter-spacing: 0.3em;
-  color: var(--red);
+  color: var(--red-on-ink);
   margin-bottom: 12px;
 }
 .about-card__text {
@@ -263,7 +264,7 @@ button:focus-visible {
   font-size: clamp(15px, 1.2vw, 17px);
   line-height: 1.55;
 }
-.about-card__text strong { color: var(--red); font-weight: 700; }
+.about-card__text strong { color: var(--red-on-ink); font-weight: 700; }
 .about-card__cta {
   display: flex;
   flex-wrap: wrap;
@@ -312,7 +313,7 @@ button:focus-visible {
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.2em;
-  color: var(--red);
+  color: var(--red-deep);
   margin-bottom: 8px;
 }
 .card__title {
@@ -333,7 +334,7 @@ button:focus-visible {
   font-family: var(--font-display);
   font-size: 16px;
   letter-spacing: 0.25em;
-  color: var(--red);
+  color: var(--red-deep);
   border-bottom: 2px solid var(--red);
 }
 .card__link:hover { color: var(--red-deep); border-color: var(--red-deep); }
@@ -356,7 +357,7 @@ button:focus-visible {
 .card--tilt-l { transform: rotate(-0.6deg); }
 .card--tilt-r { transform: rotate(0.8deg); }
 
-.card--ink .card__file { color: var(--red); }
+.card--ink .card__file { color: var(--red-on-ink); }
 .card--red .card__file { color: var(--ink); }
 
 /* ----- 11. Info grid (locations + contact side-by-side på desktop) ----- */
@@ -398,7 +399,7 @@ button:focus-visible {
 .hours__live {
   font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--red);
+  color: var(--red-on-ink);
   letter-spacing: 0.15em;
 }
 .hours__list { display: flex; flex-direction: column; }
@@ -412,12 +413,12 @@ button:focus-visible {
 }
 .hours__row dt { letter-spacing: 0.2em; margin: 0; }
 .hours__row dd { margin: 0; font-weight: 700; }
-.hours__row--late { color: var(--red); }
+.hours__row--late { color: var(--red-on-ink); }
 .hours__note {
   margin: 18px 0 0;
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--red);
+  color: var(--red-on-ink);
   letter-spacing: 0.1em;
 }
 
@@ -469,7 +470,7 @@ button:focus-visible {
   gap: 8px;
   align-items: center;
 }
-.footer__meta a:hover { color: var(--red); }
+.footer__meta a:hover { color: var(--red-on-ink); }
 .footer__sep { padding: 0 4px; }
 
 /* ----- 15. Cookie banner ----- */
@@ -538,6 +539,9 @@ button:focus-visible {
   .grain, .marquee, .cookie-banner, .hero__tape { display: none !important; }
   body { background: white; color: black; }
   .card, .about-card { box-shadow: none; transform: none; border-color: black; }
+  /* F18: dark cards bevarer cream-tekst som er usynlig på hvidt print-bg */
+  .card--ink, .about-card { background: white !important; color: black !important; }
+  .card--ink .card__file, .card--ink *, .about-card__file, .about-card__text strong, .hours__live, .hours__row--late, .hours__note, .about-card * { color: black !important; }
 }
 
 /* ----- 18. Legal pages (privatlivspolitik) ----- */
@@ -547,7 +551,7 @@ button:focus-visible {
 }
 
 .topbar__back:hover {
-  color: var(--red);
+  color: var(--red-deep);
 }
 
 .legal {

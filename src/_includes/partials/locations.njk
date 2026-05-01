@@ -4,6 +4,7 @@
     <div class="card__file">// LOCATION.MAP</div>
     <h2 id="location-heading" class="card__title">{{ site.address.street | upper }}</h2>
     <address class="card__address">
+      {{ site.address.street }}<br>
       {{ site.address.postalCode }} {{ site.address.city | upper }} · DANMARK
     </address>
     <a class="card__link" href="{{ site.address.mapsUrl }}" rel="noopener">
