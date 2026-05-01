@@ -1,0 +1,12 @@
+<section class="contact">
+  <div class="container">
+    <h2>Kontakt</h2>
+    <ul class="contact__list">
+      <li><span class="contact__label">Telefon</span> <a href="tel:{{ site.phoneIntl }}">{{ site.phone }}</a></li>
+      <li><span class="contact__label">WhatsApp</span> <a href="https://wa.me/{{ site.whatsapp | replace('+', '') | replace(' ', '') }}" rel="noopener" target="_blank">+45 50 27 91 23</a></li>
+      <li><span class="contact__label">Email</span> <a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+      <li><span class="contact__label">Instagram</span> <a href="{{ site.instagram }}" rel="noopener" target="_blank">{{ site.instagramHandle }}</a></li>
+    </ul>
+    <a href="{{ site.bookingUrl }}" class="btn btn--primary" rel="noopener" target="_blank">Book tid</a>
+  </div>
+</section>

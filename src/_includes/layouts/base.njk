@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ site.language }}">
+<head>
+  {% include "partials/head.njk" %}
+</head>
+<body>
+  <a href="#main" class="skip-link">Gå til indhold</a>
+
+  <main id="main" tabindex="-1">
+    {{ content | safe }}
+  </main>
+
+  {% include "partials/footer.njk" %}
+  {% include "partials/cookie-banner.njk" %}
+
+  <script src="/_assets/js/cookie-consent.js" defer></script>
+  <script src="/_assets/js/smooth-scroll.js" defer></script>
+</body>
+</html>

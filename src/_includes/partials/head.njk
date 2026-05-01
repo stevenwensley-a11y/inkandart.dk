@@ -1,0 +1,79 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="{{ site.description }}">
+<meta name="theme-color" content="#0a0a0a">
+
+<title>{{ title or site.name }}</title>
+
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<link rel="alternate" hreflang="da" href="{{ site.url }}{{ page.url }}">
+<link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url }}">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/_assets/img/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="/_assets/img/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:title" content="{{ title or site.name }}">
+<meta property="og:description" content="{{ site.description }}">
+<meta property="og:image" content="{{ site.url }}/_assets/img/og-image.png">
+<meta property="og:image:alt" content="{{ site.name }} logo">
+<meta property="og:site_name" content="{{ site.name }}">
+<meta property="og:locale" content="da_DK">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ title or site.name }}">
+<meta name="twitter:description" content="{{ site.description }}">
+<meta name="twitter:image" content="{{ site.url }}/_assets/img/og-image.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/_assets/css/style.css">
+
+{% if page.url == "/404.html" %}
+<meta name="robots" content="noindex, follow">
+{% endif %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TattooParlor",
+      "@id": "{{ site.url }}/#business",
+      "name": "{{ site.name }}",
+      "url": "{{ site.url }}",
+      "image": "{{ site.url }}/_assets/img/og-image.png",
+      "logo": "{{ site.url }}/_assets/img/logo.png",
+      "description": "{{ site.description }}",
+      "telephone": "{{ site.phoneIntl }}",
+      "email": "{{ site.email }}",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{ site.address.street }}",
+        "postalCode": "{{ site.address.postalCode }}",
+        "addressLocality": "{{ site.address.city }}",
+        "addressCountry": "{{ site.address.country }}"
+      },
+      "openingHoursSpecification": [
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "13:00", "closes": "23:00"},
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "13:00", "closes": "23:00"},
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "13:00", "closes": "23:30"},
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "13:00", "closes": "02:00"},
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "13:00", "closes": "05:00"},
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "14:00", "closes": "05:00"},
+        {"@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "13:00", "closes": "23:00"}
+      ],
+      "sameAs": [
+        "{{ site.instagram }}",
+        "{{ site.facebook }}"
+      ]
+    }
+  ]
+}
+</script>

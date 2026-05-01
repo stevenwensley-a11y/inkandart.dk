@@ -1,0 +1,13 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "_site",
+  "framework": null,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.inkandart.dk" }],
+      "destination": "https://inkandart.dk/$1",
+      "permanent": true
+    }
+  ]
+}

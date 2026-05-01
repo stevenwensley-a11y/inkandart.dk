@@ -1,0 +1,39 @@
+{
+  "name": "Ink & Art Copenhagen",
+  "shortName": "Ink & Art",
+  "tagline": "Tatovør- og piercing studiokæde i hjertet af København",
+  "description": "Tatovør- og piercingstudio på Larsbjørnsstræde 13 i hjertet af København. Book tid online eller kig forbi.",
+  "url": "https://inkandart.dk",
+  "language": "da",
+  "phone": "55 24 86 08",
+  "phoneIntl": "+4555248608",
+  "whatsapp": "+4550279123",
+  "email": "kontakt@inkandart.dk",
+  "emailFallback": "nizarsaad5@gmail.com",
+  "bookingUrl": "https://inkart.book.dk",
+  "instagram": "https://www.instagram.com/ink.and.art.cph/",
+  "instagramHandle": "@ink.and.art.cph",
+  "facebook": "https://www.facebook.com/share/1AfRSgVCVj/",
+  "address": {
+    "street": "Larsbjørnsstræde 13",
+    "postalCode": "1454",
+    "city": "København K",
+    "country": "DK",
+    "mapsUrl": "https://maps.google.com/?q=Larsbjørnsstræde+13,+1454+København"
+  },
+  "hours": {
+    "_todo_confirm": "Hours from FB updated ~3 years ago — Simone bør verificere",
+    "monday": "13:00 – 23:00",
+    "tuesday": "13:00 – 23:00",
+    "wednesday": "13:00 – 23:30",
+    "thursday": "13:00 – 02:00",
+    "friday": "13:00 – 05:00",
+    "saturday": "14:00 – 05:00",
+    "sunday": "13:00 – 23:00"
+  },
+  "about": "Vi er en tatovør- og piercingbutik i hjertet af København. Vores artists arbejder i en bred vifte af stile — book en tid eller kig forbi i åbningstiden.",
+  "owner": {
+    "name": "Simone Chimere",
+    "role": "Direktør"
+  }
+}

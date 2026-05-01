@@ -1,0 +1,15 @@
+{
+  "name": "inkandart-dk",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "validate": "html-validate _site/**/*.html"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "html-validate": "^9.0.0"
+  }
+}
