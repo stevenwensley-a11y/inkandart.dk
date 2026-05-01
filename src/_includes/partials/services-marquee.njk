@@ -1,7 +1,7 @@
 <div class="marquee" role="presentation" aria-hidden="true">
   <div class="marquee__track">
     {# Two passes for seamless loop. Tags hardcoded — Simone redigerer ikke ved et uheld. #}
-    {% for pass in [1, 2] %}
+    {%- for pass in [1, 2] %}
     <span class="marquee__group">
       <span>★ TATTOOS</span>
       <span>★ PIERCINGS</span>
@@ -12,6 +12,6 @@
       <span>★ TRADITIONAL</span>
       <span>★ WALK-INS</span>
     </span>
-    {% endfor %}
+    {%- endfor %}
   </div>
 </div>

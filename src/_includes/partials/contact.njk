@@ -5,7 +5,7 @@
   <ul class="contact__list">
     <li>
       <span aria-hidden="true">📞</span>
-      <a href="tel:{{ site.phoneIntl }}">{{ site.phone }}</a>
+      <a href="tel:{{ site.phoneIntl }}">{{ site.phone | replace(" ", "&nbsp;") | safe }}</a>
     </li>
     <li>
       <span aria-hidden="true">💬</span>
@@ -17,5 +17,5 @@
     </li>
   </ul>
 
-  <a href="{{ site.bookingUrl }}" class="btn btn--ink" rel="noopener">Book tid →</a>
+  <a href="{{ site.bookingUrl }}" class="btn btn--ink" rel="noopener">Book tid <span aria-hidden="true">→</span></a>
 </article>
