@@ -39,7 +39,7 @@ All site content (name, contact, hours, links) lives in one JSON file. To update
 - [ ] 3-5 photos of tattoo work, atmosphere, or artists
 - [ ] Logo in original SVG/high-res PNG (currently using a JPG conversion)
 - [ ] Confirm phone `55 24 86 08`
-- [ ] Decide on `kontakt@inkandart.dk` email — currently mailto points directly at `nizarsaad5@gmail.com` (Simply free DNS does not include forwarding; webhotel upgrade ~75 kr/year enables `kontakt@inkandart.dk`)
+- [ ] Decide on `kontakt@inkandart.dk` email — no public mailto link in v0.1.6 (email exposure removed in PR #3 to avoid spam-magnet); kontakt henvises til via telefon + WhatsApp + privatlivspolitik. When Simone wants email-form, options: (a) Formspree free-tier form, or (b) Simply webhotel upgrade ~75 kr/year for `kontakt@inkandart.dk` forwarding.
 - [ ] Update Instagram bio to point at `inkandart.dk` (currently points at `inknart.dk` — different shop)
 
 ## v0.2 backlog
