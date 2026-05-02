@@ -20,6 +20,7 @@ permissions:
   contents: read
   pull-requests: write  # for at poste comments
   issues: write
+  id-token: write  # required for OIDC token
 
 jobs:
   vilde-qa:
@@ -36,8 +37,9 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
-          model: claude-sonnet-4-6  # cost-optimal default; opgradér til opus-4-7 hvis kvalitet kræver
-          mode: automation
+          claude_args: "--model claude-sonnet-4-6 --max-turns 10"
+          # mode is auto-detected: providing 'prompt' triggers automation mode
+          track_progress: "true"
           prompt: |
             Du er Vilde — adversarial QA-reviewer for BygMedAI.
 
@@ -126,5 +128,4 @@ jobs:
         if: always()
         run: |
           echo "Vilde-QA completed for PR #${{ github.event.pull_request.number }}"
-          echo "Repo: ${{ github.repository }}"
-          echo "Commit: ${{ github.event.pull_request.head.sha }}"
+          echo "Repo: ${
