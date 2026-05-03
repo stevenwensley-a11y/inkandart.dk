@@ -1,0 +1,20 @@
+{
+  "_schema": {
+    "_comment": "v0.2 Phase 1 Step 1 — artists.json scaffold (empty array). Per kunder/ink-and-art-cph/v02-DESIGN-SPEC.md §1 dispatch step 1: 'artists.json scaffold (tom array, dokumenteret schema) — kan landes uden content'.",
+    "_authority": "src/_data/site.json is single-source-of-truth for site-meta; this file is single-source-of-truth for artist roster.",
+    "_owner": "Steven/Haruki edit only (per DESIGN-MANUAL §14.1 — Simone kan ikke ændre artists.json direkte; site.json er Simone-editable via GitHub web UI, artists.json kræver Steven/Haruki).",
+    "_fields": {
+      "id": "string — short slug (e.g. 'simone', 'nizar')",
+      "name": "string — full display name",
+      "slug": "string — URL-safe slug for /artists/<slug> hvis page-route adopted",
+      "instagram": "string optional — IG handle uden @ (e.g. 'ink.and.art.cph')",
+      "stilTags": "array<string> — fixed vocabulary: blackwork, fineline, traditional, neo-traditional, japanese, realism, dotwork, geometric, illustrative, lettering, cover-up, piercing-only",
+      "bio": "string optional — 1-2 sætninger om stil/specialitet",
+      "images": "array<{src,alt,caption?}> — 3-5 portfolio-billeder, helst 1200px+ på lange led",
+      "bookingUrl": "string optional — artist-specifik book.dk deeplink hvis support; ellers fallback til site.bookingUrl"
+    },
+    "_consent": "Per v02-DESIGN-SPEC §1 risk: artist-billeder med kunder synlige kræver samtykke. Default-policy: kun ren tattoo-close-ups uden ansigter (DESIGN-MANUAL §10 default-denied principle).",
+    "_status": "v0.2 PHASE 1 STEP 1 — schema låst, content awaits Simone leverance (estimat 30 min/artist, 1.5 time samlet for 3 artists)."
+  },
+  "artists": []
+}
