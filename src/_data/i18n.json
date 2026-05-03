@@ -1,0 +1,74 @@
+{
+  "_about": "UI strings DA/EN. Body content lives in _artists/*.md front matter.",
+
+  "common": {
+    "skipToContent":   { "da": "Gå til indhold",          "en": "Skip to content" },
+    "siteStatus":      { "da": "Site status",             "en": "Site status" },
+    "backToHome":      { "da": "Tilbage til forsiden",    "en": "Back to home" },
+    "openNow":         { "da": "ÅBEN NU",                 "en": "OPEN NOW" },
+    "closedNow":       { "da": "LUKKET",                  "en": "CLOSED" },
+    "nextSlot":        { "da": "LEDIG",                   "en": "NEXT SLOT" },
+    "openSince":       { "da": "ÅBENT SIDEN ’96",         "en": "OPEN SINCE ’96" },
+    "live":            { "da": "LIVE",                    "en": "LIVE" }
+  },
+
+  "nav": {
+    "home":            { "da": "Forside",                 "en": "Home" },
+    "walkIn":          { "da": "Walk-in",                 "en": "Walk-in" },
+    "artists":         { "da": "Artister",                "en": "Artists" },
+    "privacy":         { "da": "Privatlivspolitik",       "en": "Privacy" },
+    "channels":        { "da": "Kanaler",                 "en": "Channels" }
+  },
+
+  "cta": {
+    "bookNow":         { "da": "Book tid",                "en": "Book now" },
+    "callShop":        { "da": "Ring",                    "en": "Call" },
+    "comeIn":          { "da": "GÅ IND",                  "en": "COME IN" },
+    "findOnMap":       { "da": "FIND DEN PÅ KORTET",      "en": "FIND ON MAP" },
+    "viewPortfolio":   { "da": "SE PORTFOLIO",            "en": "VIEW PORTFOLIO" },
+    "bookWith":        { "da": "BOOK HOS",                "en": "BOOK WITH" }
+  },
+
+  "hero": {
+    "tagline": {
+      "da": "Tatovør- og piercingstudio på Larsbjørnsstræde 13 — hjertet af København. Klassisk håndværk, fed attitude, sent åbent.",
+      "en": "Tattoo and piercing studio at Larsbjørnsstræde 13 — heart of Copenhagen. Classic craft, sharp attitude, open late."
+    },
+    "stamps": {
+      "walkInsOk":     { "da": "Walk-ins ok",             "en": "Walk-ins ok" },
+      "ourArtists":    { "da": "Vores artister",          "en": "Our artists" },
+      "zineIssue":     { "da": "Vol.01 · zine 01",        "en": "Vol.01 · zine 01" }
+    }
+  },
+
+  "walkIn": {
+    "youAreHere":      { "da": "Du står udenfor.",                                "en": "You are right here." },
+    "comeInside":      { "da": "Gå ind.",                                          "en": "Come on in." },
+    "fileLabel":       { "da": "// FIL: WALK-IN.TXT",                              "en": "// FILE: WALK-IN.TXT" },
+    "blurb": {
+      "da": "Vi laver din tat nu. Eller om en time. Eller i morgen. Døren går altid op for nogen.",
+      "en": "We do your tattoo now. Or in an hour. Or tomorrow. The door is always open for someone."
+    },
+    "priceStamp":      { "da": "FRA 800 KR · TIME 1500",   "en": "FROM DKK 800 · HOUR 1500" },
+    "fallback":        { "da": "Walk-ins når vi har tid · 13:00 – 23:00", "en": "Walk-ins when we have time · 13:00 – 23:00" },
+    "stale":           { "da": "(Status nogle minutter gammel)",          "en": "(Status a few minutes old)" }
+  },
+
+  "artists": {
+    "indexTitle":      { "da": "Artisterne",              "en": "The Artists" },
+    "indexFile":       { "da": "// FIL: ARTISTER.LIST",   "en": "// FILE: ARTISTS.LIST" },
+    "indexLead": {
+      "da": "Seks personer. Seks håndværk. Find den der matcher dig — eller kom forbi og lad os finde ud af det sammen.",
+      "en": "Six people. Six crafts. Find the one who matches you — or stop by and let us figure it out together."
+    },
+    "stylesLabel":     { "da": "Stil",                    "en": "Style" },
+    "instagramLabel":  { "da": "Instagram",               "en": "Instagram" },
+    "languagesLabel":  { "da": "Sprog",                   "en": "Languages" },
+    "fileLabel":       { "da": "// FIL: ARTIST.TXT",      "en": "// FILE: ARTIST.TXT" }
+  },
+
+  "footer": {
+    "credit":          { "da": "Bygget af",               "en": "Built by" },
+    "copyright":       { "da": "Larsbjørnsstræde 13",     "en": "Larsbjørnsstræde 13" }
+  }
+}

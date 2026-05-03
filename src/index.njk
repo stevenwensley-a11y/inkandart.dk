@@ -1,9 +1,14 @@
 ---
 layout: layouts/base.njk
-title: Ink & Art Copenhagen — Tatovør og piercing i København
-permalink: /
+pagination:
+  data: siteLocales
+  size: 1
+  alias: lang
+siteLocales: [da, en]
+permalink: "{% if lang == 'en' %}/en/{% else %}/{% endif %}"
+eleventyComputed:
+  title: "{% if lang == 'en' %}Ink & Art Copenhagen — Tattoo and piercing in Copenhagen{% else %}Ink & Art Copenhagen — Tatovør og piercing i København{% endif %}"
 ---
-
 {% include "partials/hero.njk" %}
 {% include "partials/services-marquee.njk" %}
 {% include "partials/locations.njk" %}

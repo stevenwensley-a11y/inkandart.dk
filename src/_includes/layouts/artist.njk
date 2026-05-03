@@ -1,0 +1,102 @@
+---
+layout: layouts/base.njk
+---
+{# Artist deep-page layout. Reads bilingual front matter, renders for {{ lang }}. #}
+{% set artistName = name %}
+{% set artistStyles = styles | join(" · ") if styles else "" %}
+
+<section class="artist">
+  <div class="artist__head">
+    <p class="artist__file">{{ "artists.fileLabel" | t(lang) }}</p>
+    <h1 class="artist__name">{{ name }}</h1>
+    <p class="artist__role">{{ role[lang] if role[lang] else role.da }}</p>
+  </div>
+
+  <div class="artist__body">
+    {% if portrait and portrait.src %}
+    <figure class="artist__portrait">
+      <img src="/_assets/img/artists/{{ slug }}/{{ portrait.src }}"
+           alt="{{ portrait.alt[lang] if portrait.alt[lang] else portrait.alt.da }}"
+           width="600" height="800"
+           loading="eager"
+           decoding="async">
+    </figure>
+    {% endif %}
+
+    <div class="artist__meta">
+      <dl class="artist__facts">
+        <div>
+          <dt>{{ "artists.stylesLabel" | t(lang) }}</dt>
+          <dd>{{ styles | join(" · ") }}</dd>
+        </div>
+        {% if instagram %}
+        <div>
+          <dt>{{ "artists.instagramLabel" | t(lang) }}</dt>
+          <dd>
+            <a href="https://www.instagram.com/{{ instagram }}/" target="_blank" rel="noopener noreferrer">
+              @{{ instagram }} ↗
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+        {% if languages %}
+        <div>
+          <dt>{{ "artists.languagesLabel" | t(lang) }}</dt>
+          <dd>{{ languages | join(" · ") | upper }}</dd>
+        </div>
+        {% endif %}
+      </dl>
+
+      <div class="artist__bio">
+        {{ (bio[lang] if bio[lang] else bio.da) | safe }}
+      </div>
+
+      {% if booksysId %}
+      <a href="{{ booking.deepLinkPattern | replace('{booksysId}', booksysId) }}"
+         class="btn btn--primary"
+         target="_blank"
+         rel="noopener noreferrer">
+        {{ "cta.bookWith" | t(lang) }} {{ name | upper }} ↗
+      </a>
+      {% endif %}
+    </div>
+  </div>
+
+  {% if portfolio and portfolio.length %}
+  <div class="artist__portfolio">
+    <h2 class="artist__portfolio-title">Portfolio</h2>
+    <div class="artist__portfolio-grid">
+      {% for img in portfolio %}
+      <figure>
+        <img src="/_assets/img/artists/{{ slug }}/{{ img.src }}"
+             alt="{{ img.alt[lang] if img.alt[lang] else img.alt.da }}"
+             loading="lazy"
+             decoding="async">
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <p class="artist__back">
+    <a href="{% if lang == 'en' %}/en/artists/{% else %}/artister/{% endif %}" class="btn btn--outline">
+      ← {{ "nav.artists" | t(lang) }}
+    </a>
+  </p>
+</section>
+
+{# Per-artist JSON-LD Person markup #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ name | safe }}",
+  "jobTitle": "{{ (role[lang] if role[lang] else role.da) | safe }}",
+  "url": "{{ site.url }}{{ page.url }}",
+  {% if portrait %}"image": "{{ site.url }}/_assets/img/artists/{{ slug }}/{{ portrait.src }}",{% endif %}
+  "knowsAbout": [{% for style in styles %}"{{ style | capitalize | safe }}"{% if not loop.last %}, {% endif %}{% endfor %}],
+  "knowsLanguage": {{ languages | dump | safe }},
+  "worksFor": { "@id": "{{ site.url }}/#business" }{% if instagram %},
+  "sameAs": ["https://www.instagram.com/{{ instagram }}/"]{% endif %}
+}
+</script>

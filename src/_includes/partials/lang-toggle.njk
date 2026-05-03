@@ -1,0 +1,8 @@
+{# Lang-toggle stempel — links to sister URL on the other locale.
+   Renders as a Punk Xerox stamp; placement decided by parent layout. #}
+{% set lang = page.url | pageLang %}
+{% set sister = page.url | sisterUrl %}
+{% set otherLang = "en" if lang == "da" else "da" %}
+<a href="{{ sister }}" class="lang-toggle stamp stamp--ink" hreflang="{{ otherLang }}" rel="alternate" aria-label="{% if otherLang == 'en' %}Switch to English{% else %}Skift til dansk{% endif %}">
+  {% if otherLang == "en" %}EN ↗{% else %}DA ↗{% endif %}
+</a>

@@ -1,0 +1,34 @@
+name: Weekly cron rebuild
+
+# Triggers a Vercel deploy every Monday at 03:00 UTC so:
+#   - footer copyright year stays accurate without manual intervention
+#   - any time-based content (status fallbacks, masthead) refreshes
+#   - dependency-tree alerts surface during scheduled re-runs
+#
+# This workflow only commits an empty marker file in a non-tracked path.
+# The Vercel Git integration picks up the push and triggers a fresh build.
+
+on:
+  schedule:
+    - cron: "0 3 * * 1" # Monday 03:00 UTC
+  workflow_dispatch:
+
+jobs:
+  trigger-rebuild:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Bump deploy marker
+        run: |
+          mkdir -p .deploy-markers
+          date -u +"%Y-%m-%dT%H:%M:%SZ" > .deploy-markers/last-cron-rebuild.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .deploy-markers/last-cron-rebuild.txt
+          git diff --cached --quiet || git commit -m "chore: weekly cron rebuild marker"
+          git push origin main

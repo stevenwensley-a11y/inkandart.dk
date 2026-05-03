@@ -6,10 +6,16 @@
   "scripts": {
     "build": "eleventy",
     "serve": "eleventy --serve",
-    "validate": "html-validate _site/**/*.html"
+    "validate": "html-validate _site/**/*.html",
+    "images": "node scripts/images.js",
+    "poster": "node scripts/poster.js",
+    "poster:en": "node scripts/poster.js --en"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
-    "html-validate": "^9.0.0"
+    "@11ty/eleventy-img": "^6.0.4",
+    "html-validate": "^9.0.0",
+    "pdf-lib": "^1.17.1",
+    "qrcode": "^1.5.4"
   }
 }

@@ -1,16 +1,42 @@
-<header class="topbar" aria-label="Site status">
-{%- if page.url == "/" %}
+{% set lang = page.url | pageLang %}
+<header class="topbar" aria-label="{{ 'common.siteStatus' | t(lang) }}">
+{%- set isHome = page.url == "/" or page.url == "/en/" -%}
+{%- set isWalkIn = page.url == "/walk-in/" or page.url == "/en/walk-in/" -%}
+{%- set isArtistsIndex = page.url == "/artister/" or page.url == "/en/artists/" -%}
+{%- set isArtistDeep = page.url.match("^/artister/[^/]+/$") or page.url.match("^/en/artists/[^/]+/$") -%}
+{%- set isPrivacy = page.url == "/privatlivspolitik/" or page.url == "/en/privacy/" -%}
+{%- set is404 = page.url == "/404.html" or page.url == "/en/404.html" -%}
+
+{%- if isHome %}
   <span>★ ESTD · KBH ★</span>
   <span class="topbar__issue">VOL.01 / ISSUE.01 / 05.2026</span>
-  <span class="topbar__live">● ÅBENT SIDEN ’96</span>
-{%- elif page.url == "/privatlivspolitik/" %}
-  <span><a href="/" class="topbar__back" aria-label="Tilbage til forsiden">← {{ site.shortName | upper }}</a></span>
-  <span class="topbar__issue">PRIVATLIVSPOLITIK</span>
+  <span class="topbar__live" data-status-live>● {{ "common.openSince" | t(lang) }}</span>
+
+{%- elif isWalkIn %}
+  <span><a href="{% if lang == 'en' %}/en/{% else %}/{% endif %}" class="topbar__back">← {{ site.shortName | upper }}</a></span>
+  <span class="topbar__issue">{{ "nav.walkIn" | t(lang) | upper }}</span>
+  <span class="topbar__live" data-status-live aria-live="polite">● {{ "common.live" | t(lang) }}</span>
+
+{%- elif isArtistsIndex %}
+  <span><a href="{% if lang == 'en' %}/en/{% else %}/{% endif %}" class="topbar__back">← {{ site.shortName | upper }}</a></span>
+  <span class="topbar__issue">{{ "nav.artists" | t(lang) | upper }}</span>
+  <span class="topbar__live">★ 6 I STOLEN</span>
+
+{%- elif isArtistDeep %}
+  <span><a href="{% if lang == 'en' %}/en/artists/{% else %}/artister/{% endif %}" class="topbar__back">← {{ "nav.artists" | t(lang) | upper }}</a></span>
+  <span class="topbar__issue">{{ artistName | upper if artistName else (page.fileSlug | upper) }}</span>
+  <span class="topbar__live">{% if artistStyles %}★ {{ artistStyles | upper }}{% endif %}</span>
+
+{%- elif isPrivacy %}
+  <span><a href="{% if lang == 'en' %}/en/{% else %}/{% endif %}" class="topbar__back">← {{ site.shortName | upper }}</a></span>
+  <span class="topbar__issue">{{ "nav.privacy" | t(lang) | upper }}</span>
   <span class="topbar__live">● SENEST OPDATERET 2026-05-02</span>
-{%- elif page.url == "/404.html" %}
-  <span><a href="/" class="topbar__back" aria-label="Tilbage til forsiden">← {{ site.shortName | upper }}</a></span>
+
+{%- elif is404 %}
+  <span><a href="{% if lang == 'en' %}/en/{% else %}/{% endif %}" class="topbar__back">← {{ site.shortName | upper }}</a></span>
   <span class="topbar__issue">404 NOT FOUND</span>
   <span class="topbar__live">● BAD URL</span>
+
 {%- else %}
   <span>★ ESTD · KBH ★</span>
 {%- endif %}

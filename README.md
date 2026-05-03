@@ -1,51 +1,103 @@
 # inkandart.dk
 
-Landing page for **Ink & Art Copenhagen** — tatovør- og piercingstudio på Larsbjørnsstræde 13, København K.
+Landing site for **Ink & Art Copenhagen** — tatovør- og piercingstudio på
+Larsbjørnsstræde 13, København K.
 
 **Live:** https://inkandart.dk
+
+---
+
+## Documentation
+
+Den fulde tekniske dokumentation lever i [`docs/`](docs/README.md):
+
+- [`docs/README.md`](docs/README.md) — Index + Sprint 1 changelog
+- [`docs/architecture.md`](docs/architecture.md) — Stack, i18n, routing, data-model — det "hvorfor"
+- [`docs/runbook.md`](docs/runbook.md) — Stevens operationelle playbook (artists, billeder, deploys, rollback)
+- [`docs/api-status.md`](docs/api-status.md) — `/api/status` kontrakt + Booksys-swap-plan
+- [`docs/ux-journey.md`](docs/ux-journey.md) — Cross-page UX-mønstre (topbar, lang-toggle, hero-stempler)
+
+---
 
 ## Stack
 
 - [Eleventy](https://www.11ty.dev/) v3 (static site generator)
-- Plain CSS + vanilla JS (no build pipeline beyond Eleventy)
-- [Vercel](https://vercel.com/) (hosting + auto-deploy from `main`)
-- [Simply.com](https://simply.com/) (DNS + email forwarding)
+- [Vercel](https://vercel.com/) — hosting + Edge Functions + auto-deploy fra `main`
+- Self-hosted fonts (Bebas Neue + Space Mono, OFL)
+- [Simply.com](https://simply.com/) — DNS + (fremtidig) email forwarding
 
-## Quickstart (local)
+Detaljer: [`docs/architecture.md`](docs/architecture.md#stack).
+
+---
+
+## Quickstart
 
 ```bash
 nvm use            # Node 20
 npm install
 npm run serve      # http://localhost:8080
 npm run build      # output → _site/
-npm run validate   # html-validate
+npm run validate   # html-validate (forventes 0 fejl)
+
+npm run poster     # genererer A4 QR-poster (DA) → posters/walk-in-da-YYYY-MM-DD.pdf
+npm run poster:en  # engelsk variant
+npm run images     # bearbejder fotos i src/_assets/img-raw/<slug>/
 ```
 
-## Single source of truth: `src/_data/site.json`
+---
 
-All site content (name, contact, hours, links) lives in one JSON file. To update:
+## Single source of truth: `src/_data/`
 
-1. Edit `src/_data/site.json` directly on GitHub (web UI: pencil icon)
-2. Commit
-3. Vercel auto-rebuilds within ~60s
+| Fil | Indhold |
+|---|---|
+| `site.json` | Brand-niveau data (navn, adresse, telefon, hours, social links) |
+| `i18n.json` | UI-strenge DA + EN |
+| `booking.json` | Booking-config (mock pt., real efter Simone leverer) |
 
-## Deploy
+For at opdatere content: rediger filerne (lokalt eller direkte på GitHub),
+commit til `main`, Vercel auto-rebuilder ~30 s.
 
-`main` is the deploy branch. Pushing to `main` triggers Vercel deploy.
+---
 
-## TODOs from Simone (v0.2 inputs)
+## Routes (efter Sprint 1, v0.2.0)
 
-- [ ] Confirm opening hours (currently from FB, ~3 years stale)
-- [ ] 3-5 photos of tattoo work, atmosphere, or artists
-- [ ] Logo in original SVG/high-res PNG (currently using a JPG conversion)
-- [ ] Confirm phone `55 24 86 08`
-- [ ] Decide on `kontakt@inkandart.dk` email — no public mailto link in v0.1.6 (email exposure removed in PR #3 to avoid spam-magnet); kontakt henvises til via telefon + WhatsApp + privatlivspolitik. When Simone wants email-form, options: (a) Formspree free-tier form, or (b) Simply webhotel upgrade ~75 kr/year for `kontakt@inkandart.dk` forwarding.
-- [ ] Update Instagram bio to point at `inkandart.dk` (currently points at `inknart.dk` — different shop)
+| DA | EN |
+|---|---|
+| `/` | `/en/` |
+| `/walk-in/` | `/en/walk-in/` |
+| `/artister/` | `/en/artists/` |
+| `/artister/<slug>/` × 6 | `/en/artists/<slug>/` × 6 |
+| `/privatlivspolitik/` | `/en/privacy/` |
+| `/404.html` | (delt) |
 
-## v0.2 backlog
+23 sider total. Build < 0.3 s.
 
-Portfolio, artist profiles, walk-in info, FAQ, contact form, EN-version, self-host fonts, GA4.
+---
+
+## Action-items fra Simone (kontent-leverancer pending)
+
+| Item | Status |
+|---|---|
+| Bekræfte åbningstider | ✅ Bekræftet 2026-05-01 |
+| 3-5 fotos af tatto-arbejde, atmosfære, artister | ⏳ Pending |
+| Logo i SVG/high-res PNG (currently JPG-conversion) | ⏳ Pending |
+| Bekræfte telefon `55 24 86 08` | ✅ Bekræftet 2026-05-01 |
+| Email `kontakt@inkandart.dk` (Simply webhotel-upgrade) | ⏳ Decision pending |
+| Update Instagram bio til `inkandart.dk` (currently `inknart.dk`) | ✅ Simone bekræftede 2026-05-01, Simone-action |
+| **Booksys API-detaljer** (endpoint, auth, deeplink-pattern) | ⏳ Steven har skrevet til Simone |
+| **6 artist-portrætter + bios + portfolio** | ⏳ Pending — workflow klar i [runbook.md](docs/runbook.md#tilføj-en-ny-artist) |
+
+---
+
+## Sprint 2 — kandidater (ikke besluttet)
+
+Se [`docs/README.md` → Sprint 2 — kandidater](docs/README.md#sprint-2--kandidater).
+
+Hovedpunkter: real Booksys API-swap, R2 image migration, `@vercel/og` runtime
+OG-images, `/walk-in?from=window` toast, cookie-banner re-evaluering.
+
+---
 
 ## Owner
 
-Steven Wensley · steven@bygmedai.dk
+Steven Wensley · steven@bygmedai.dk · [bygmedai.dk](https://www.bygmedai.dk)

@@ -1,0 +1,73 @@
+---
+layout: layouts/base.njk
+title: Privacy Policy · Ink & Art Copenhagen
+permalink: /en/privacy/
+---
+
+<section class="legal">
+  <article class="legal__content">
+    <div class="legal__file">// FILE: PRIVACY-POLICY.TXT</div>
+    <h1 class="legal__title">Privacy Policy</h1>
+    <p class="legal__lead">How we handle data when you visit {{ site.url }}.</p>
+
+    <h2>1. Data controller</h2>
+    <p>
+      {{ site.name }}<br>
+      {{ site.address.street }}<br>
+      {{ site.address.postalCode }} {{ site.address.city }}<br>
+      Denmark
+    </p>
+    <p>
+      Privacy queries can be addressed via phone at <a href="tel:{{ site.phoneIntl }}">{{ site.phone | replace(" ", "&nbsp;") | safe }}</a> or WhatsApp at <a href="https://wa.me/{{ site.whatsapp | replace('+', '') | replace(' ', '') }}" target="_blank" rel="noopener noreferrer">{{ site.whatsapp }}</a>.
+    </p>
+
+    <h2>2. What data do we collect?</h2>
+    <p>
+      When you visit {{ site.url }}, we collect no personal data by default. The site has no contact forms, no user accounts, and no e-commerce.
+    </p>
+    <p>
+      If you accept via the cookie banner, your choice is stored locally in your browser. If you reject, the rejection is also stored locally so the banner doesn't reappear.
+    </p>
+
+    <h2>3. Cookies</h2>
+    <p>
+      The site uses one technical cookie-like storage (<code>localStorage</code>) to remember your consent choice. It contains only the value <code>accept</code> or <code>reject</code>. It does not contain personal data.
+    </p>
+    <p>
+      The site is prepared to load Google Analytics 4 in a future version, but <strong>currently loads no tracking cookies</strong> — regardless of your consent. When analytics is added, collection will be denied by default (Consent Mode v2) and only enabled after active consent.
+    </p>
+    <p>
+      You can clear your consent at any time by deleting the browser's local storage for {{ site.url }}.
+    </p>
+
+    <h2>4. Third-party services</h2>
+    <p>The site is hosted on Vercel (USA) and delivered via their global CDN. Vercel receives standard browser data (IP address, user agent, referrer) as part of delivery. Vercel is certified under the EU-US Data Privacy Framework.</p>
+    <p>Fonts are self-hosted from this domain (Bebas Neue and Space Mono — both under SIL Open Font License). No font-related data is sent to third parties.</p>
+    <p>Online booking is handled by an external booking system at {{ site.bookingUrl }}. When you click "Book now", the booking system opens in a new browser tab. The booking system has its own privacy policy.</p>
+
+    <h2>5. Your rights</h2>
+    <p>Under the EU General Data Protection Regulation (GDPR), you have the right to:</p>
+    <ul>
+      <li>request access to the personal data we hold about you</li>
+      <li>have inaccurate data corrected</li>
+      <li>have data erased</li>
+      <li>object to processing</li>
+      <li>data portability</li>
+    </ul>
+    <p>Since we generally do not process personal data on this site, most rights typically have no substance. If you have a specific concern, you can contact us as described in section 1.</p>
+
+    <h2>6. Right to complain</h2>
+    <p>
+      You have the right to file a complaint with the Danish Data Protection Authority. Contact details on <a href="https://www.datatilsynet.dk/english" target="_blank" rel="noopener noreferrer">datatilsynet.dk</a>.
+    </p>
+
+    <h2>7. Changes to this policy</h2>
+    <p>
+      This policy may be updated as the site evolves. The most recent version is always available at {{ site.url }}/en/privacy/. The latest update date is shown at the top of the page.
+    </p>
+
+    <p class="legal__back">
+      <a href="/en/" class="btn btn--outline">← Back to home</a>
+    </p>
+  </article>
+</section>

@@ -1,0 +1,56 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: siteLocales
+  size: 1
+  alias: lang
+siteLocales: [da, en]
+permalink: "{% if lang == 'en' %}/en/artists/{% else %}/artister/{% endif %}"
+eleventyComputed:
+  title: "{% if lang == 'en' %}Artists · Ink & Art Copenhagen{% else %}Artisterne · Ink & Art Copenhagen{% endif %}"
+---
+<section class="artists-index">
+  <div class="artists-index__head">
+    <p class="artists-index__file">{{ "artists.indexFile" | t(lang) }}</p>
+    <h1 class="artists-index__title">{{ "artists.indexTitle" | t(lang) }}</h1>
+    <p class="artists-index__lead">{{ "artists.indexLead" | t(lang) }}</p>
+  </div>
+
+  <div class="artists-index__grid">
+    {%- for artist in collections.artist -%}
+      {%- if artist.data.lang == lang -%}
+      <article class="artist-card">
+        <a href="{{ artist.url }}" class="artist-card__link">
+          {%- if artist.data.portrait and artist.data.portrait.src -%}
+          <figure class="artist-card__portrait">
+            <img src="/_assets/img/artists/{{ artist.data.slug }}/{{ artist.data.portrait.src }}"
+                 alt="{{ artist.data.portrait.alt[lang] if artist.data.portrait.alt[lang] else artist.data.portrait.alt.da }}"
+                 loading="lazy"
+                 decoding="async">
+          </figure>
+          {%- endif -%}
+          <div class="artist-card__body">
+            <h2 class="artist-card__name">{{ artist.data.name }}</h2>
+            <p class="artist-card__role">{{ artist.data.role[lang] if artist.data.role[lang] else artist.data.role.da }}</p>
+            <p class="artist-card__styles">★ {{ artist.data.styles | join(" · ") | upper }}</p>
+            <p class="artist-card__cta">
+              {{ "cta.viewPortfolio" | t(lang) }} ↗
+            </p>
+          </div>
+        </a>
+      </article>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "{% if lang == 'en' %}Home{% else %}Forside{% endif %}", "item": "{{ site.url }}{% if lang == 'en' %}/en/{% else %}/{% endif %}" },
+    { "@type": "ListItem", "position": 2, "name": "{{ 'nav.artists' | t(lang) }}", "item": "{{ site.url }}{{ page.url }}" }
+  ]
+}
+</script>
