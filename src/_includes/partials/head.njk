@@ -1,6 +1,11 @@
+{%- set pageLang = lang or (page.url | pageLang) -%}
+{%- set pageOgImage = ogImage or (("/_assets/img/artists/" + slug + "/portrait.jpg") if slug else "/_assets/img/og-image.png") -%}
+{%- set pageOgImageAlt = ogImageAlt or (site.name + " logo") -%}
+{%- set pageDescription = description or site.description -%}
+{%- set pageOgLocale = "en_DK" if pageLang == "en" else "da_DK" -%}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="{{ site.description }}">
+<meta name="description" content="{{ pageDescription }}">
 <meta name="theme-color" content="#ece6da">
 
 <link rel="preload" as="image" href="/_assets/img/logo.png" fetchpriority="high">
@@ -10,27 +15,30 @@
 <title>{{ title or site.name }}</title>
 
 <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-<link rel="alternate" hreflang="da" href="{{ site.url }}{{ page.url }}">
-<link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ page.url }}">
+<link rel="alternate" hreflang="{{ pageLang }}" href="{{ site.url }}{{ page.url }}">
+<link rel="alternate" hreflang="{% if pageLang == 'en' %}da{% else %}en{% endif %}" href="{{ site.url }}{{ page.url | sisterUrl }}">
+<link rel="alternate" hreflang="x-default" href="{{ site.url }}{% if pageLang == 'en' %}{{ page.url | sisterUrl }}{% else %}{{ page.url }}{% endif %}">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/_assets/img/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/_assets/img/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="{% if slug %}profile{% else %}website{% endif %}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 <meta property="og:title" content="{{ title or site.name }}">
-<meta property="og:description" content="{{ site.description }}">
-<meta property="og:image" content="{{ site.url }}/_assets/img/og-image.png">
-<meta property="og:image:alt" content="{{ site.name }} logo">
+<meta property="og:description" content="{{ pageDescription }}">
+<meta property="og:image" content="{{ site.url }}{{ pageOgImage }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ pageOgImageAlt }}">
 <meta property="og:site_name" content="{{ site.name }}">
-<meta property="og:locale" content="da_DK">
+<meta property="og:locale" content="{{ pageOgLocale }}">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ title or site.name }}">
-<meta name="twitter:description" content="{{ site.description }}">
-<meta name="twitter:image" content="{{ site.url }}/_assets/img/og-image.png">
+<meta name="twitter:description" content="{{ pageDescription }}">
+<meta name="twitter:image" content="{{ site.url }}{{ pageOgImage }}">
 
 <link rel="stylesheet" href="/_assets/css/style.css">
 

@@ -6,3 +6,9 @@ _site/
 .env.local
 *.log
 .DS_Store
+
+# Generated artefacts (regenerate with `npm run poster` etc.)
+posters/
+
+# Image-pipeline raw input (Steven drops files here, processed output is committed)
+src/_assets/img-raw/

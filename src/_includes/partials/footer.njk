@@ -1,21 +1,26 @@
+{% set lang = lang or (page.url | pageLang) %}
 <footer class="footer">
   <div class="footer__main">
     <div class="footer__brand">
       INK &amp; ART <span class="footer__star" aria-hidden="true">★</span> CPH
     </div>
-    <nav class="footer__meta" aria-label="Kanaler">
+    <nav class="footer__meta" aria-label="{{ 'nav.channels' | t(lang) }}">
+      <a href="{% if lang == 'en' %}/en/walk-in/{% else %}/walk-in/{% endif %}">{{ "nav.walkIn" | t(lang) }}</a>
+      <span class="footer__sep" aria-hidden="true">·</span>
+      <a href="{% if lang == 'en' %}/en/artists/{% else %}/artister/{% endif %}">{{ "nav.artists" | t(lang) }}</a>
+      <span class="footer__sep" aria-hidden="true">|</span>
       <a href="{{ site.instagram }}" target="_blank" rel="noopener noreferrer">Instagram</a>
       <span aria-hidden="true">·</span>
       <a href="{{ site.facebook }}" target="_blank" rel="noopener noreferrer">Facebook</a>
       <span aria-hidden="true">·</span>
       <a href="https://wa.me/{{ site.whatsapp | replace('+', '') | replace(' ', '') }}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       <span class="footer__sep" aria-hidden="true">|</span>
-      <a href="/privatlivspolitik/">Privatlivspolitik</a>
+      <a href="{% if lang == 'en' %}/en/privacy/{% else %}/privatlivspolitik/{% endif %}">{{ "nav.privacy" | t(lang) }}</a>
       <span class="footer__sep" aria-hidden="true">|</span>
-      <span>© {{ "now" | date("%Y") }} · {{ site.address.street }}</span>
+      <span>© {{ "now" | date("%Y") }} · {{ "footer.copyright" | t(lang) }}</span>
     </nav>
   </div>
   <div class="footer__credit">
-    Bygget af <a href="https://www.bygmedai.dk" target="_blank" rel="noopener noreferrer">bygmedai.dk</a>
+    {{ "footer.credit" | t(lang) }} <a href="https://www.bygmedai.dk" target="_blank" rel="noopener noreferrer">bygmedai.dk</a>
   </div>
 </footer>

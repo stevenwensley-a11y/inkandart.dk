@@ -1,0 +1,21 @@
+{
+  "_about": "Booking-system config. Mock indtil Simone afleverer Booksys API-detaljer.",
+
+  "provider": "booksys-mock",
+  "baseUrl": "https://inkart.book.dk",
+
+  "deepLinkPattern": "https://inkart.book.dk/?artist={booksysId}",
+
+  "statusEndpoint": "/api/status",
+  "statusCacheSeconds": 60,
+  "statusFreshSeconds": 300,
+
+  "fallbackStrategy": "scheduled",
+
+  "_pendingFromSimone": [
+    "Endpoint base URL (er det inkart.book.dk eller inkandart.book.dk?)",
+    "API-doc URL eller eksempel-response for /availability",
+    "Auth-mønster (Bearer token / OAuth / signed query)",
+    "Per-artist deep-link URL-pattern (nuværende gæt: ?artist=ID)"
+  ]
+}

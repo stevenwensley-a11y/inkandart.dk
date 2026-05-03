@@ -745,3 +745,248 @@ button:focus-visible {
   border-top: 2px solid var(--ink);
   padding-top: 32px;
 }
+
+/* ----- 19. Lang-toggle + functional stempler ----- */
+/* Hooks for Claude Design to refine. Minimum viable styling so the page
+   doesn't crash visually. */
+
+.lang-toggle {
+  position: fixed;
+  top: 14px;
+  right: var(--pad-x);
+  z-index: 50;
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.hero__stamp--link {
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.hero__stamp--link:hover { transform: rotate(0deg) scale(1.05); }
+
+/* ----- 20. Walk-in page ----- */
+.hero--walkin {
+  min-height: 80vh;
+  text-align: left;
+}
+.hero--walkin .hero__wordmark-line {
+  font-size: clamp(72px, 16vw, 220px);
+}
+.hero--walkin .hero__wordmark-cph {
+  font-size: clamp(32px, 8vw, 120px);
+}
+.walk-in__stamps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 24px 0;
+}
+.walk-in__stamp-status,
+.walk-in__stamp-price {
+  font-size: 16px;
+}
+.walk-in__stamp-status { transform: rotate(-2deg); }
+.walk-in__stamp-price  { transform: rotate(3deg); }
+.about-card__live {
+  margin: 16px 0 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--red-on-ink);
+  border-top: 1px dashed rgba(236, 230, 218, 0.3);
+  padding-top: 12px;
+}
+
+/* ----- 21. Artists index ----- */
+.artists-index {
+  padding: clamp(56px, 7vw, 96px) var(--pad-x);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.artists-index__head { margin-bottom: clamp(32px, 5vw, 56px); }
+.artists-index__file {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--red-deep);
+  margin: 0 0 8px;
+}
+.artists-index__title {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 8vw, 96px);
+  letter-spacing: 0.04em;
+  line-height: 0.9;
+  margin: 0 0 16px;
+}
+.artists-index__lead {
+  font-family: var(--font-mono);
+  font-size: clamp(15px, 1.5vw, 18px);
+  max-width: 640px;
+  color: var(--muted);
+}
+.artists-index__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(24px, 4vw, 40px);
+}
+@media (min-width: 640px) {
+  .artists-index__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1000px) {
+  .artists-index__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.artist-card {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: var(--shadow-hard);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.artist-card:nth-child(odd)  { transform: rotate(-0.4deg); }
+.artist-card:nth-child(even) { transform: rotate(0.5deg); }
+.artist-card:hover {
+  transform: rotate(0deg) translate(-3px, -3px);
+  box-shadow: 12px 12px 0 var(--red);
+}
+.artist-card__link { display: block; text-decoration: none; color: inherit; }
+.artist-card__portrait {
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--paper-warm);
+  border-bottom: 2px solid var(--ink);
+}
+.artist-card__portrait img { width: 100%; height: 100%; object-fit: cover; }
+.artist-card__body { padding: 20px 24px; }
+.artist-card__name {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 0.04em;
+  margin: 0 0 4px;
+}
+.artist-card__role {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+.artist-card__styles {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--red-deep);
+  margin: 0 0 16px;
+}
+.artist-card__cta {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.22em;
+  margin: 0;
+}
+
+/* ----- 22. Artist deep page ----- */
+.artist {
+  padding: clamp(56px, 7vw, 96px) var(--pad-x);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.artist__head { margin-bottom: clamp(32px, 4vw, 48px); }
+.artist__file {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--red-deep);
+  margin: 0 0 8px;
+}
+.artist__name {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 9vw, 120px);
+  letter-spacing: 0.02em;
+  line-height: 0.9;
+  margin: 0 0 8px;
+}
+.artist__role {
+  font-family: var(--font-mono);
+  font-size: clamp(14px, 1.5vw, 18px);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+.artist__body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(24px, 4vw, 48px);
+}
+@media (min-width: 760px) {
+  .artist__body { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); }
+}
+.artist__portrait {
+  margin: 0;
+  border: 2px solid var(--ink);
+  box-shadow: var(--shadow-red);
+  background: var(--paper-warm);
+}
+.artist__portrait img { width: 100%; height: auto; display: block; }
+.artist__facts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 0 0 24px;
+  padding: 0 0 24px;
+  border-bottom: 2px dashed var(--ink);
+}
+.artist__facts > div { display: flex; gap: 12px; align-items: baseline; }
+.artist__facts dt {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  min-width: 110px;
+}
+.artist__facts dd {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+.artist__bio {
+  font-family: var(--font-mono);
+  font-size: clamp(15px, 1.3vw, 17px);
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+.artist__bio p { margin: 0 0 12px; }
+.artist__portfolio { margin: clamp(48px, 6vw, 72px) 0 0; }
+.artist__portfolio-title {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3vw, 36px);
+  letter-spacing: 0.04em;
+  margin: 0 0 24px;
+}
+.artist__portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: clamp(12px, 2vw, 20px);
+}
+.artist__portfolio-grid figure { margin: 0; }
+.artist__portfolio-grid img {
+  width: 100%;
+  height: auto;
+  border: 2px solid var(--ink);
+  display: block;
+}
+.artist__back {
+  margin: clamp(48px, 6vw, 72px) 0 0;
+  border-top: 2px solid var(--ink);
+  padding-top: 32px;
+}
+

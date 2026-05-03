@@ -1,3 +1,4 @@
+{% set lang = lang or (page.url | pageLang) %}
 <section class="info-grid" aria-labelledby="location-heading">
 
   <article class="card card--paper card--tilt-r">
@@ -5,10 +6,10 @@
     <h2 id="location-heading" class="card__title">{{ site.address.street | upper }}</h2>
     <address class="card__address">
       {{ site.address.street }}<br>
-      {{ site.address.postalCode }} {{ site.address.city | upper }} · DANMARK
+      {{ site.address.postalCode }} {{ site.address.city | upper }} · {% if lang == "en" %}DENMARK{% else %}DANMARK{% endif %}
     </address>
     <a class="card__link" href="{{ site.address.mapsUrl }}" target="_blank" rel="noopener noreferrer">
-      FIND DEN PÅ KORTET ↗
+      {{ "cta.findOnMap" | t(lang) }} ↗
     </a>
     <a class="card__link card__link--secondary"
        href="https://www.openstreetmap.org/?mlat=55.6792&amp;mlon=12.5710&amp;zoom=18"
@@ -17,6 +18,6 @@
     </a>
   </article>
 
-  {% include "partials/contact.njk" %}
+  {%- include "partials/contact.njk" -%}
 
 </section>

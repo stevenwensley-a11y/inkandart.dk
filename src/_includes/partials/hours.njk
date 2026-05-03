@@ -1,18 +1,24 @@
+{% set lang = lang or (page.url | pageLang) %}
+{% set days = {
+  da: { title: "ÅBNINGSTIDER", mon: "MAN", tue: "TIR", wed: "ONS", thu: "TOR", fri: "FRE", sat: "LØR", sun: "SØN", note: "★ = nightshift // døren går altid op for nogen" },
+  en: { title: "OPENING HOURS", mon: "MON", tue: "TUE", wed: "WED", thu: "THU", fri: "FRI", sat: "SAT", sun: "SUN", note: "★ = night shift // the door is always open for someone" }
+} %}
+{% set d = days[lang] if days[lang] else days.da %}
 <section class="hours card card--ink card--tilt-l" aria-labelledby="hours-heading">
   <header class="hours__head">
-    <h2 id="hours-heading" class="hours__title">ÅBNINGSTIDER</h2>
-    <span class="hours__live">[LIVE]</span>
+    <h2 id="hours-heading" class="hours__title">{{ d.title }}</h2>
+    <span class="hours__live">★ {{ "common.openSince" | t(lang) }}</span>
   </header>
 
   <dl class="hours__list">
-    <div class="hours__row"><dt>MAN</dt><dd>{{ site.hours.monday }}</dd></div>
-    <div class="hours__row"><dt>TIR</dt><dd>{{ site.hours.tuesday }}</dd></div>
-    <div class="hours__row"><dt>ONS</dt><dd>{{ site.hours.wednesday }}</dd></div>
-    <div class="hours__row"><dt>TOR</dt><dd>{{ site.hours.thursday }}</dd></div>
-    <div class="hours__row hours__row--late"><dt>FRE</dt><dd>{{ site.hours.friday }} ★</dd></div>
-    <div class="hours__row hours__row--late"><dt>LØR</dt><dd>{{ site.hours.saturday }} ★</dd></div>
-    <div class="hours__row"><dt>SØN</dt><dd>{{ site.hours.sunday }}</dd></div>
+    <div class="hours__row"><dt>{{ d.mon }}</dt><dd>{{ site.hours.monday }}</dd></div>
+    <div class="hours__row"><dt>{{ d.tue }}</dt><dd>{{ site.hours.tuesday }}</dd></div>
+    <div class="hours__row"><dt>{{ d.wed }}</dt><dd>{{ site.hours.wednesday }}</dd></div>
+    <div class="hours__row"><dt>{{ d.thu }}</dt><dd>{{ site.hours.thursday }}</dd></div>
+    <div class="hours__row hours__row--late"><dt>{{ d.fri }}</dt><dd>{{ site.hours.friday }} ★</dd></div>
+    <div class="hours__row hours__row--late"><dt>{{ d.sat }}</dt><dd>{{ site.hours.saturday }} ★</dd></div>
+    <div class="hours__row"><dt>{{ d.sun }}</dt><dd>{{ site.hours.sunday }}</dd></div>
   </dl>
 
-  <p class="hours__note">★ = nightshift // døren går altid op for nogen</p>
+  <p class="hours__note">{{ d.note }}</p>
 </section>

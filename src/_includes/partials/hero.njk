@@ -1,3 +1,4 @@
+{% set lang = lang or (page.url | pageLang) %}
 <section class="hero">
   <div class="hero__tape hero__tape--left" aria-hidden="true"></div>
   <div class="hero__tape hero__tape--right" aria-hidden="true"></div>
@@ -13,19 +14,23 @@
        width="200" height="200"
        fetchpriority="high">
 
-  <div class="stamp stamp--red hero__stamp-1" aria-hidden="true">Walk-ins ok</div>
-  <div class="stamp stamp--ink hero__stamp-2" aria-hidden="true">No vegan ink</div>
-  <div class="stamp stamp--red hero__stamp-3" aria-hidden="true">Vol.01 · zine 01</div>
+  {#- Stempler — to af tre er funktionelle entry-points til sub-sider. -#}
+  <a href="{% if lang == 'en' %}/en/walk-in/{% else %}/walk-in/{% endif %}" class="stamp stamp--red hero__stamp-1 hero__stamp--link">{{ "hero.stamps.walkInsOk" | t(lang) }} ↗</a>
+  <a href="{% if lang == 'en' %}/en/artists/{% else %}/artister/{% endif %}" class="stamp stamp--ink hero__stamp-2 hero__stamp--link">{{ "hero.stamps.ourArtists" | t(lang) }} ↗</a>
+  <div class="stamp stamp--red hero__stamp-3" aria-hidden="true">{{ "hero.stamps.zineIssue" | t(lang) }}</div>
 
   <div class="about-card">
     <div class="about-card__file">// FILE: ABOUT.TXT</div>
-    <p class="about-card__text">
-      Tatovør- og piercingstudio på <strong>{{ site.address.street }}</strong> — hjertet af København.
-      Klassisk håndværk, fed attitude, sent åbent.
-    </p>
+    <p class="about-card__text">{%- if lang == "en" -%}
+      Tattoo and piercing studio at <strong>{{ site.address.street }}</strong> — heart of Copenhagen. Classic craft, sharp attitude, open late.
+      {%- else -%}
+      Tatovør- og piercingstudio på <strong>{{ site.address.street }}</strong> — hjertet af København. Klassisk håndværk, fed attitude, sent åbent.
+      {%- endif -%}</p>
     <div class="about-card__cta">
-      <a href="{{ site.bookingUrl }}" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Book tid <span aria-hidden="true">→</span></a>
-      <a href="tel:{{ site.phoneIntl }}" class="btn btn--ghost">Ring {{ site.phone | replace(" ", "&nbsp;") | safe }}</a>
+      <a href="{{ site.bookingUrl }}" class="btn btn--primary" target="_blank" rel="noopener noreferrer">{{ "cta.bookNow" | t(lang) }} <span aria-hidden="true">→</span></a>
+      <a href="tel:{{ site.phoneIntl }}" class="btn btn--ghost">{{ "cta.callShop" | t(lang) }}&nbsp;{{ site.phone | replace(" ", "&nbsp;") | safe }}</a>
     </div>
   </div>
+
+  {%- include "partials/lang-toggle.njk" -%}
 </section>

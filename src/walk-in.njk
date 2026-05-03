@@ -1,0 +1,57 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: siteLocales
+  size: 1
+  alias: lang
+siteLocales: [da, en]
+permalink: "{% if lang == 'en' %}/en/walk-in/{% else %}/walk-in/{% endif %}"
+eleventyComputed:
+  title: "{% if lang == 'en' %}Walk-in · Ink & Art Copenhagen{% else %}Walk-in · Ink & Art Copenhagen{% endif %}"
+---
+<section class="walk-in hero hero--walkin">
+  <h1 class="hero__wordmark">
+    <span class="hero__wordmark-line">{{ "walkIn.youAreHere" | t(lang) | upper }}</span>
+    <span class="hero__wordmark-cph">{{ "walkIn.comeInside" | t(lang) | upper }}<span class="dot">.</span></span>
+  </h1>
+
+  <div class="walk-in__stamps" aria-hidden="true">
+    <div class="stamp stamp--red walk-in__stamp-status" data-status-stamp>
+      {{ "walkIn.fallback" | t(lang) }}
+    </div>
+    <div class="stamp stamp--ink walk-in__stamp-price">
+      {{ "walkIn.priceStamp" | t(lang) }}
+    </div>
+  </div>
+
+  <div class="about-card">
+    <div class="about-card__file">{{ "walkIn.fileLabel" | t(lang) }}</div>
+    <p class="about-card__text">{{ "walkIn.blurb" | t(lang) }}</p>
+    <div class="about-card__cta">
+      <a href="https://wa.me/{{ site.whatsapp | replace('+', '') | replace(' ', '') }}"
+         class="btn btn--primary"
+         target="_blank" rel="noopener noreferrer">
+        WHATSAPP ↗
+      </a>
+      <a href="tel:{{ site.phoneIntl }}" class="btn btn--ghost">{{ "cta.callShop" | t(lang) }}&nbsp;{{ site.phone | replace(" ", "&nbsp;") | safe }}</a>
+    </div>
+    <p class="about-card__live" data-status-text aria-live="polite">
+      {{ "walkIn.fallback" | t(lang) }}
+    </p>
+  </div>
+
+  {%- include "partials/lang-toggle.njk" -%}
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "{% if lang == 'en' %}Home{% else %}Forside{% endif %}", "item": "{{ site.url }}{% if lang == 'en' %}/en/{% else %}/{% endif %}" },
+    { "@type": "ListItem", "position": 2, "name": "{{ 'nav.walkIn' | t(lang) }}", "item": "{{ site.url }}{{ page.url }}" }
+  ]
+}
+</script>
+
+<script src="/_assets/js/walk-in.js" defer></script>

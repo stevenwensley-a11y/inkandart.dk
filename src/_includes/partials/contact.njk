@@ -1,6 +1,7 @@
+{% set lang = lang or (page.url | pageLang) %}
 <article class="card card--red card--tilt-l" aria-labelledby="contact-heading">
-  <div class="card__file">// KONTAKT.DUMP</div>
-  <h2 id="contact-heading" class="visually-hidden">Kontakt</h2>
+  <div class="card__file">// {% if lang == "en" %}CONTACT.DUMP{% else %}KONTAKT.DUMP{% endif %}</div>
+  <h2 id="contact-heading" class="visually-hidden">{% if lang == "en" %}Contact{% else %}Kontakt{% endif %}</h2>
 
   <ul class="contact__list">
     <li>
@@ -17,5 +18,5 @@
     </li>
   </ul>
 
-  <a href="{{ site.bookingUrl }}" class="btn btn--ink" target="_blank" rel="noopener noreferrer">Book tid <span aria-hidden="true">→</span></a>
+  <a href="{{ site.bookingUrl }}" class="btn btn--ink" target="_blank" rel="noopener noreferrer">{{ "cta.bookNow" | t(lang) }} <span aria-hidden="true">→</span></a>
 </article>

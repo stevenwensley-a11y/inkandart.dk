@@ -1,20 +1,21 @@
+{% set pageLang = lang or (page.url | pageLang) %}
 <!DOCTYPE html>
-<html lang="{{ site.language }}">
+<html lang="{{ pageLang }}">
 <head>
   {% include "partials/head.njk" %}
 </head>
 <body class="paper">
-  <a href="#main" class="skip-link">Gå til indhold</a>
+  <a href="#main" class="skip-link">{{ "common.skipToContent" | t(pageLang) }}</a>
   <div class="grain" aria-hidden="true"></div>
 
-  {% include "partials/topbar.njk" %}
+  {%- include "partials/topbar.njk" -%}
 
   <main id="main" tabindex="-1">
     {{- content | safe -}}
   </main>
 
-  {% include "partials/footer.njk" %}
-  {% include "partials/cookie-banner.njk" %}
+  {%- include "partials/footer.njk" -%}
+  {%- include "partials/cookie-banner.njk" -%}
 
   <script src="/_assets/js/cookie-consent.js" defer></script>
 </body>
