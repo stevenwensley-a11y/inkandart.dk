@@ -1,0 +1,132 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: siteLocales
+  size: 1
+  alias: lang
+siteLocales: [da, en]
+permalink: "{% if lang == 'en' %}/en/find-your-tattoo/{% else %}/find-din-tatovering/{% endif %}"
+eleventyComputed:
+  title: "{% if lang == 'en' %}Find Your Tattoo Artist · Ink & Art Copenhagen{% else %}Find din tatoveringartist · Ink & Art København{% endif %}"
+  description: "{% if lang == 'en' %}Answer three questions and find the right tattoo artist for you at Ink & Art Copenhagen — plus an honest price estimate. Walk-ins welcome.{% else %}Svar på tre spørgsmål og find den rette tatoveringsartist hos Ink & Art København — plus et ærligt prisestimat. Walk-ins velkomne.{% endif %}"
+---
+<section class="find">
+  <div class="find__head">
+    <p class="find__file">{{ "find.fileLabel" | t(lang) }}</p>
+    <h1 class="find__title">{{ "find.pageTitle" | t(lang) }}</h1>
+    <p class="find__lead">{{ "find.lead" | t(lang) }}</p>
+  </div>
+
+  {#- No-JS fallback — JS will hide this -#}
+  <p id="match-nojs" class="find__nojs">
+    <a href="{% if lang == 'en' %}/en/artists/{% else %}/artister/{% endif %}" class="btn btn--outline">
+      {{ "find.noJs" | t(lang) }}
+    </a>
+  </p>
+  {#- Wizard — hidden until JS shows it -#}
+  <div id="match-steps" class="find__steps" hidden>
+
+    <div id="step-1" data-step="1" class="find__step">
+      <h2 class="find__step-label">
+        <span class="find__step-num" aria-hidden="true">01 /</span>
+        {{ "find.q1Label" | t(lang) }}
+      </h2>
+      <div class="find__options find__options--style" role="group" aria-label="{{ 'find.q1Label' | t(lang) }}">
+        <button class="find__option" type="button" data-value="bold-klassisk" aria-pressed="false">
+          <span class="find__option-title">{{ "find.styleBold" | t(lang) }}</span>
+          <span class="find__option-hint">{{ "find.styleBoldHint" | t(lang) }}</span>
+        </button>
+        <button class="find__option" type="button" data-value="sort-praecis" aria-pressed="false">
+          <span class="find__option-title">{{ "find.styleSort" | t(lang) }}</span>
+          <span class="find__option-hint">{{ "find.styleSortHint" | t(lang) }}</span>
+        </button>
+        <button class="find__option" type="button" data-value="delikat-fin" aria-pressed="false">
+          <span class="find__option-title">{{ "find.styleDelikat" | t(lang) }}</span>
+          <span class="find__option-hint">{{ "find.styleDelikatHint" | t(lang) }}</span>
+        </button>
+        <button class="find__option" type="button" data-value="farverig" aria-pressed="false">
+          <span class="find__option-title">{{ "find.styleFarverig" | t(lang) }}</span>
+          <span class="find__option-hint">{{ "find.styleFarverigHint" | t(lang) }}</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="step-2" data-step="2" class="find__step">
+      <h2 class="find__step-label">
+        <span class="find__step-num" aria-hidden="true">02 /</span>
+        {{ "find.q2Label" | t(lang) }}
+      </h2>
+      <div class="find__options find__options--size" role="group" aria-label="{{ 'find.q2Label' | t(lang) }}">
+        <button class="find__option" type="button" data-value="lille" aria-pressed="false">
+          <span class="find__option-title">{{ "find.sizeLille" | t(lang) }}</span>
+          <span class="find__option-hint">{{ "find.sizeLilleHint" | t(lang) }}</span>
+        </button>
+        <button class="find__option" type="button" data-value="medium" aria-pressed="false">
+          <span class="find__option-title">{{ "find.sizeMedium" | t(lang) }}</span>
+          <span class="find__option-hint">{{ "find.sizeMediumHint" | t(lang) }}</span>
+        </button>
+        <button class="find__option" type="button" data-value="stort" aria-pressed="false">
+          <span class="find__option-title">{{ "find.sizeStort" | t(lang) }}</span>
+          <span class="find__option-hint">{{ "find.sizeStortHint" | t(lang) }}</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="step-3" data-step="3" class="find__step">
+      <h2 class="find__step-label">
+        <span class="find__step-num" aria-hidden="true">03 /</span>
+        {{ "find.q3Label" | t(lang) }}
+      </h2>
+      <div class="find__options find__options--budget" role="group" aria-label="{{ 'find.q3Label' | t(lang) }}">
+        <button class="find__option" type="button" data-value="under-1000" aria-pressed="false">
+          <span class="find__option-title">{{ "find.budgetLow" | t(lang) }}</span>
+        </button>
+        <button class="find__option" type="button" data-value="1000-3000" aria-pressed="false">
+          <span class="find__option-title">{{ "find.budgetMid" | t(lang) }}</span>
+        </button>
+        <button class="find__option" type="button" data-value="over-3000" aria-pressed="false">
+          <span class="find__option-title">{{ "find.budgetHigh" | t(lang) }}</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+  {#- Result — hidden until JS populates it -#}
+  <div id="match-result" class="find__result" hidden>
+    <div class="find__result-inner">
+      <p class="find__result-label">{{ "find.resultTitle" | t(lang) }}</p>
+      <p class="find__result-name" id="match-artist-name"></p>
+      <dl class="find__result-meta">
+        <div>
+          <dt>{{ "find.priceLabel" | t(lang) }}</dt>
+          <dd id="match-price"></dd>
+        </div>
+      </dl>
+      <p id="match-budget-note" class="find__budget-note" hidden>
+        {{ "find.budgetNote" | t(lang) }}
+      </p>
+      <p class="find__price-note">{{ "find.priceNote" | t(lang) }}</p>
+      <div class="find__result-ctas">
+        <a id="match-artist-link" href="#" class="btn btn--outline">{{ "find.ctaArtist" | t(lang) }} →</a>
+        <a id="match-book-link" href="#" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+          {{ "find.ctaBook" | t(lang) }} ↗
+        </a>
+      </div>
+      <button id="match-reset" type="button" class="find__reset">{{ "find.ctaReset" | t(lang) }}</button>
+    </div>
+  </div>
+
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{% if lang == 'en' %}Find Your Tattoo Artist{% else %}Find din tatoveringsartist{% endif %}",
+  "url": "{{ site.url }}{{ page.url }}",
+  "description": "{% if lang == 'en' %}Answer three questions and find the right tattoo artist at Ink & Art Copenhagen.{% else %}Svar på tre spørgsmål og find den rette tatoveringsartist hos Ink & Art København.{% endif %}",
+  "isPartOf": { "@id": "{{ site.url }}/#business" }
+}
+</script>
+
+<script src="/_assets/js/artist-match.js" defer></script>

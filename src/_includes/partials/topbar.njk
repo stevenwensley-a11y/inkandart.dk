@@ -4,6 +4,8 @@
 {%- set isWalkIn = page.url == "/walk-in/" or page.url == "/en/walk-in/" -%}
 {%- set isArtistsIndex = page.url == "/artister/" or page.url == "/en/artists/" -%}
 {%- set isArtistDeep = page.url.match("^/artister/[^/]+/$") or page.url.match("^/en/artists/[^/]+/$") -%}
+{%- set isFind    = page.url == "/find-din-tatovering/" or page.url == "/en/find-your-tattoo/" -%}
+{%- set isFlash   = page.url == "/flash/" or page.url == "/en/flash/" -%}
 {%- set isPrivacy = page.url == "/privatlivspolitik/" or page.url == "/en/privacy/" -%}
 {%- set is404 = page.url == "/404.html" or page.url == "/en/404.html" -%}
 
@@ -26,6 +28,16 @@
   <span><a href="{% if lang == 'en' %}/en/artists/{% else %}/artister/{% endif %}" class="topbar__back">← {{ "nav.artists" | t(lang) | upper }}</a></span>
   <span class="topbar__issue">{{ artistName | upper if artistName else (page.fileSlug | upper) }}</span>
   <span class="topbar__live">{% if artistStyles %}★ {{ artistStyles | upper }}{% endif %}</span>
+
+{%- elif isFlash %}
+  <span><a href="{% if lang == 'en' %}/en/{% else %}/{% endif %}" class="topbar__back">← {{ site.shortName | upper }}</a></span>
+  <span class="topbar__issue">{{ "nav.flash" | t(lang) | upper }}</span>
+  <span class="topbar__live">★ {% if lang == 'en' %}WALK-IN READY{% else %}KLAR TIL WALK-IN{% endif %}</span>
+
+{%- elif isFind %}
+  <span><a href="{% if lang == 'en' %}/en/{% else %}/{% endif %}" class="topbar__back">← {{ site.shortName | upper }}</a></span>
+  <span class="topbar__issue">MATCH.TXT</span>
+  <span class="topbar__live">★ {% if lang == 'en' %}3 QUESTIONS{% else %}3 SPØRGSMÅL{% endif %}</span>
 
 {%- elif isPrivacy %}
   <span><a href="{% if lang == 'en' %}/en/{% else %}/{% endif %}" class="topbar__back">← {{ site.shortName | upper }}</a></span>

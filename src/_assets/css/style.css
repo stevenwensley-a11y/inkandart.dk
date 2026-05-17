@@ -840,6 +840,22 @@ button:focus-visible {
 @media (min-width: 1000px) {
   .artists-index__grid { grid-template-columns: repeat(3, 1fr); }
 }
+.artists-index__match-cta {
+  margin-top: clamp(40px, 6vw, 64px);
+  padding-top: clamp(28px, 4vw, 40px);
+  border-top: 2px solid var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.artists-index__match-label {
+  font-family: var(--font-display);
+  font-size: clamp(16px, 1.8vw, 22px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
 
 .artist-card {
   background: var(--paper);
@@ -1222,5 +1238,197 @@ button:focus-visible {
   .flash__price-list { grid-template-columns: 1fr; }
   .flash__price-row { border-right: none; border-bottom: 2px solid var(--ink); }
   .flash__price-row:last-child { border-bottom: none; }
+}
+
+/* ----- 26. Find din tatovering (artist match wizard) ----- */
+.find {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 80px) var(--pad-x);
+}
+.find__head {
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+.find__file {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: 12px;
+}
+.find__title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 6vw, 64px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+  margin-bottom: 20px;
+}
+.find__lead {
+  font-size: clamp(15px, 1.5vw, 18px);
+  max-width: 52ch;
+  line-height: 1.55;
+  opacity: 0.75;
+}
+.find__nojs {
+  padding: 40px 0;
+}
+.find__steps {
+  border-top: 2px solid var(--ink);
+}
+.find__step {
+  padding: clamp(28px, 4vw, 48px) 0;
+  border-bottom: 2px solid var(--ink);
+}
+.find__step-label {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2.2vw, 26px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+.find__step-num {
+  font-size: 0.65em;
+  opacity: 0.4;
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+.find__options {
+  display: grid;
+  gap: 2px;
+}
+.find__options--style  { grid-template-columns: repeat(2, 1fr); }
+.find__options--size   { grid-template-columns: repeat(3, 1fr); }
+.find__options--budget { grid-template-columns: repeat(3, 1fr); }
+.find__option {
+  background: transparent;
+  border: 2px solid var(--ink);
+  padding: clamp(16px, 2.5vw, 28px) clamp(14px, 2vw, 24px);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: inherit;
+}
+.find__option:hover,
+.find__option:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+  outline: none;
+}
+.find__option[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+}
+.find__option-title {
+  font-family: var(--font-display);
+  font-size: clamp(16px, 1.8vw, 22px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+.find__option-hint {
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+  line-height: 1.4;
+}
+.find__option[aria-pressed="true"] .find__option-hint { opacity: 0.8; }
+.find__result {
+  border-top: 2px solid var(--ink);
+  padding-top: clamp(32px, 5vw, 56px);
+}
+.find__result-inner {
+  max-width: 480px;
+}
+.find__result-label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: 8px;
+}
+.find__result-name {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  margin-bottom: 28px;
+}
+.find__result-meta {
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 16px 0;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 32px;
+}
+.find__result-meta dt {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: 4px;
+}
+.find__result-meta dd {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.find__budget-note {
+  font-size: 13px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  font-family: var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.find__price-note {
+  font-size: 13px;
+  opacity: 0.55;
+  margin-bottom: 28px;
+}
+.find__result-ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.find__reset {
+  background: none;
+  border: none;
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 0.45;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.find__reset:hover { opacity: 0.9; }
+@media (max-width: 599px) {
+  .find__options--style,
+  .find__options--size,
+  .find__options--budget { grid-template-columns: 1fr; }
+  .find__result-ctas { flex-direction: column; }
 }
 

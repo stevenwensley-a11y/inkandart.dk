@@ -17,6 +17,7 @@
     "walkIn":          { "da": "Walk-in",                 "en": "Walk-in" },
     "artists":         { "da": "Artister",                "en": "Artists" },
     "flash":           { "da": "Flash",                   "en": "Flash" },
+    "find":            { "da": "Find din artist",         "en": "Find your artist" },
     "privacy":         { "da": "Privatlivspolitik",       "en": "Privacy" },
     "channels":        { "da": "Kanaler",                 "en": "Channels" }
   },
@@ -66,6 +67,40 @@
     "instagramLabel":  { "da": "Instagram",               "en": "Instagram" },
     "languagesLabel":  { "da": "Sprog",                   "en": "Languages" },
     "fileLabel":       { "da": "// FIL: ARTIST.TXT",      "en": "// FILE: ARTIST.TXT" }
+  },
+
+  "find": {
+    "pageTitle":        { "da": "Find din tatovering",                 "en": "Find your tattoo" },
+    "fileLabel":        { "da": "// FIL: MATCH.TXT",                   "en": "// FILE: MATCH.TXT" },
+    "lead":             { "da": "Tre spørgsmål. Én artist. Et ærligt prisestimat.", "en": "Three questions. One artist. An honest price estimate." },
+    "q1Label":          { "da": "Hvilken stil trækker dig?",            "en": "Which style draws you in?" },
+    "q2Label":          { "da": "Hvor stort forestiller du dig det?",   "en": "How big do you want it?" },
+    "q3Label":          { "da": "Hvad er dit budget?",                  "en": "What's your budget?" },
+    "styleBold":        { "da": "Bold & klassisk",                      "en": "Bold & classic" },
+    "styleBoldHint":    { "da": "Traditional, old school, kraftfulde linjer", "en": "Traditional, old school, strong lines" },
+    "styleSort":        { "da": "Sort & præcis",                        "en": "Black & precise" },
+    "styleSortHint":    { "da": "Blackwork, geometri, ren sort blæk",   "en": "Blackwork, geometry, clean black ink" },
+    "styleDelikat":     { "da": "Delikat & fin",                        "en": "Delicate & fine" },
+    "styleDelikatHint": { "da": "Fineline, micro, botanisk",            "en": "Fineline, micro, botanical" },
+    "styleFarverig":    { "da": "Farverig & illustrativ",               "en": "Colourful & illustrative" },
+    "styleFarverigHint":{ "da": "Farver, illustrationer, karakter",     "en": "Colour, illustration, character" },
+    "sizeLille":        { "da": "Lille",                                "en": "Small" },
+    "sizeLilleHint":    { "da": "Ca. matchbox-størrelse",               "en": "About matchbox-sized" },
+    "sizeMedium":       { "da": "Medium",                               "en": "Medium" },
+    "sizeMediumHint":   { "da": "Ca. håndflad-størrelse",               "en": "About palm-sized" },
+    "sizeStort":        { "da": "Stort",                                "en": "Large" },
+    "sizeStortHint":    { "da": "Underarm og opefter",                  "en": "Forearm and above" },
+    "budgetLow":        { "da": "Under 1.000 kr",                       "en": "Under DKK 1,000" },
+    "budgetMid":        { "da": "1.000 – 3.000 kr",                     "en": "DKK 1,000 – 3,000" },
+    "budgetHigh":       { "da": "Over 3.000 kr",                        "en": "Over DKK 3,000" },
+    "resultTitle":      { "da": "Din artist",                           "en": "Your artist" },
+    "priceLabel":       { "da": "Prisestimat",                          "en": "Price estimate" },
+    "priceNote":        { "da": "Endelig pris aftales i studiet. Moms inkluderet.", "en": "Final price agreed in the studio. VAT included." },
+    "budgetNote":       { "da": "Tip: Et lille format passer bedre til dit budget.", "en": "Tip: A small design suits your budget better." },
+    "ctaArtist":        { "da": "Se arbejde",                           "en": "View work" },
+    "ctaBook":          { "da": "Book tid",                             "en": "Book now" },
+    "ctaReset":         { "da": "Prøv igen",                            "en": "Try again" },
+    "noJs":             { "da": "Se alle artister",                     "en": "View all artists" }
   },
 
   "flash": {

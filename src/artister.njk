@@ -43,6 +43,13 @@ eleventyComputed:
       {%- endif -%}
     {%- endfor -%}
   </div>
+
+  <div class="artists-index__match-cta">
+    <p class="artists-index__match-label">{% if lang == 'en' %}Not sure who?{% else %}Ikke sikker på hvem?{% endif %}</p>
+    <a href="{% if lang == 'en' %}/en/find-your-tattoo/{% else %}/find-din-tatovering/{% endif %}" class="btn btn--primary">
+      {{ "nav.find" | t(lang) }} →
+    </a>
+  </div>
 </section>
 
 <script type="application/ld+json">
