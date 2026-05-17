@@ -840,6 +840,22 @@ button:focus-visible {
 @media (min-width: 1000px) {
   .artists-index__grid { grid-template-columns: repeat(3, 1fr); }
 }
+.artists-index__match-cta {
+  margin-top: clamp(40px, 6vw, 64px);
+  padding-top: clamp(28px, 4vw, 40px);
+  border-top: 2px solid var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.artists-index__match-label {
+  font-family: var(--font-display);
+  font-size: clamp(16px, 1.8vw, 22px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
 
 .artist-card {
   background: var(--paper);
