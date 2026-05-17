@@ -1,5 +1,5 @@
 {%- set pageLang = lang or (page.url | pageLang) -%}
-{%- set pageOgImage = ogImage or (("/_assets/img/artists/" + slug + "/portrait.jpg") if slug else "/_assets/img/og-image.png") -%}
+{%- set pageOgImage = ogImage or (("/_assets/img/artists/" + slug + "/portrait.jpg") if slug else "/_assets/img/og-image.jpg") -%}
 {%- set pageOgImageAlt = ogImageAlt or (site.name + " logo") -%}
 {%- set pageDescription = description or (site.description_en if pageLang == "en" else site.description) -%}
 {%- set pageOgLocale = "en_DK" if pageLang == "en" else "da_DK" -%}
@@ -55,7 +55,7 @@
       "@id": "{{ site.url }}/#business",
       "name": "{{ site.name | safe }}",
       "url": "{{ site.url }}",
-      "image": "{{ site.url }}/_assets/img/og-image.png",
+      "image": "{{ site.url }}/_assets/img/og-image.jpg",
       "logo": "{{ site.url }}/_assets/img/logo.png",
       "description": "{{ site.description | safe }}",
       "telephone": "{{ site.phoneIntl }}",
