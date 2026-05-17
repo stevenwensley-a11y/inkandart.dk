@@ -1,0 +1,33 @@
+{% set lang = lang or (page.url | pageLang) %}
+<section class="studio-gallery" aria-labelledby="studio-gallery-heading">
+  <p class="studio-gallery__file" aria-hidden="true">// {% if lang == "en" %}FILE: STUDIO.IMG{% else %}FIL: STUDIE.IMG{% endif %}</p>
+  <h2 id="studio-gallery-heading" class="visually-hidden">{% if lang == "en" %}The Studio{% else %}Studiet{% endif %}</h2>
+
+  <div class="studio-gallery__strip">
+
+    <figure class="studio-gallery__item studio-gallery__item--1">
+      <img src="/_assets/img/studio/studio-sign.jpg"
+           alt="{% if lang == 'en' %}Ink &amp; Art Copenhagen — neon TATTOO sign in the window{% else %}Ink &amp; Art Copenhagen — TATTOO-neonskilt i vinduet{% endif %}"
+           loading="lazy" decoding="async" width="678" height="900">
+    </figure>
+
+    <figure class="studio-gallery__item studio-gallery__item--2">
+      <img src="/_assets/img/studio/studio-station.jpg"
+           alt="{% if lang == 'en' %}Tattoo station with neon lips artwork at Ink &amp; Art Copenhagen{% else %}Tatovørstol med neon lips-banner hos Ink &amp; Art Copenhagen{% endif %}"
+           loading="lazy" decoding="async" width="900" height="678">
+    </figure>
+
+    <figure class="studio-gallery__item studio-gallery__item--3">
+      <img src="/_assets/img/studio/studio-lounge.jpg"
+           alt="{% if lang == 'en' %}Lounge and waiting area with artwork and neon lighting at Ink &amp; Art{% else %}Lounge og venteområde med kunst og neonbelysning hos Ink &amp; Art{% endif %}"
+           loading="lazy" decoding="async" width="900" height="678">
+    </figure>
+
+    <figure class="studio-gallery__item studio-gallery__item--4">
+      <img src="/_assets/img/studio/studio-display.jpg"
+           alt="{% if lang == 'en' %}Piercing jewellery display cases at Ink &amp; Art Copenhagen{% else %}Piercingsmykke-montre og Nizar Saads kursusbevis hos Ink &amp; Art Copenhagen{% endif %}"
+           loading="lazy" decoding="async" width="900" height="678">
+    </figure>
+
+  </div>
+</section>
