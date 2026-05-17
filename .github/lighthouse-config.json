@@ -10,7 +10,9 @@
         "http://localhost/privatlivspolitik/index.html",
         "http://localhost/en/index.html",
         "http://localhost/en/walk-in/index.html",
-        "http://localhost/en/artists/index.html"
+        "http://localhost/en/artists/index.html",
+        "http://localhost/flash/index.html",
+        "http://localhost/en/flash/index.html"
       ],
       "numberOfRuns": 1,
       "settings": {

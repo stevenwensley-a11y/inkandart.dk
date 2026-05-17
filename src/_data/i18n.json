@@ -16,6 +16,7 @@
     "home":            { "da": "Forside",                 "en": "Home" },
     "walkIn":          { "da": "Walk-in",                 "en": "Walk-in" },
     "artists":         { "da": "Artister",                "en": "Artists" },
+    "flash":           { "da": "Flash",                   "en": "Flash" },
     "privacy":         { "da": "Privatlivspolitik",       "en": "Privacy" },
     "channels":        { "da": "Kanaler",                 "en": "Channels" }
   },
@@ -65,6 +66,28 @@
     "instagramLabel":  { "da": "Instagram",               "en": "Instagram" },
     "languagesLabel":  { "da": "Sprog",                   "en": "Languages" },
     "fileLabel":       { "da": "// FIL: ARTIST.TXT",      "en": "// FILE: ARTIST.TXT" }
+  },
+
+  "flash": {
+    "indexTitle":      { "da": "Flash-galleri",           "en": "Flash Gallery" },
+    "indexFile":       { "da": "// FIL: FLASH.LIST",      "en": "// FILE: FLASH.LIST" },
+    "indexLead": {
+      "da": "Pre-dragne designs klar til at blive tatoveret nu. Intet booking-kaos, ingen lang ventetid — vælg et motiv og sæt dig ned.",
+      "en": "Pre-drawn designs ready to tattoo now. No booking chaos, no long wait — pick a motif and sit down."
+    },
+    "comingSoon": {
+      "da": "Nye designs på vej — kig forbi eller følg os på Instagram.",
+      "en": "New designs coming soon — stop by or follow us on Instagram."
+    },
+    "pricesTitle":     { "da": "Priser",                  "en": "Prices" },
+    "pricesFrom":      { "da": "Fra 800 kr",              "en": "From DKK 800" },
+    "pricesFromNote":  { "da": "Simplere motiver",        "en": "Simpler designs" },
+    "pricesHour":      { "da": "1.500 kr / time",         "en": "DKK 1,500 / hour" },
+    "pricesHourNote":  { "da": "Større eller mere detaljerede motiver", "en": "Larger or more detailed designs" },
+    "pricesFootnote":  { "da": "Endelig pris aftales i studiet. Moms inkluderet.", "en": "Final price agreed in the studio. VAT included." },
+    "available":       { "da": "Ledig",                   "en": "Available" },
+    "taken":           { "da": "Booket",                  "en": "Booked" },
+    "walkInCta":       { "da": "Se walk-in info",         "en": "Walk-in info" }
   },
 
   "footer": {
