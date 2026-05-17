@@ -1,5 +1,5 @@
 {% set lang = lang or (page.url | pageLang) %}
-<aside id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-banner-title" hidden>
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-banner-title" hidden>
   <div class="cookie-banner__inner">
     <h2 id="cookie-banner-title" class="cookie-banner__title">Cookies</h2>
     <p class="cookie-banner__body">
@@ -14,4 +14,4 @@
       <button type="button" class="btn btn--outline" data-consent="accept">{% if lang == "en" %}Accept{% else %}Accepter{% endif %}</button>
     </div>
   </div>
-</aside>
+</div>

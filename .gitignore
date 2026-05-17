@@ -12,3 +12,6 @@ posters/
 
 # Image-pipeline raw input (Steven drops files here, processed output is committed)
 src/_assets/img-raw/
+
+# Lighthouse CI lokal kørsel (regenereres automatisk)
+.lighthouseci/

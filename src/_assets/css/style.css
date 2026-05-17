@@ -330,7 +330,7 @@ button:focus-visible {
 
 /* ----- 9. Marquee ----- */
 .marquee {
-  background: var(--red);
+  background: var(--red-deep);
   color: var(--paper);
   border-top: 2px solid var(--ink);
   border-bottom: 2px solid var(--ink);
