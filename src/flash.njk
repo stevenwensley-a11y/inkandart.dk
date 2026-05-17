@@ -1,0 +1,76 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: siteLocales
+  size: 1
+  alias: lang
+siteLocales: [da, en]
+permalink: "{% if lang == 'en' %}/en/flash/{% else %}/flash/{% endif %}"
+eleventyComputed:
+  title: "{% if lang == 'en' %}Flash Tattoo Copenhagen · Ink & Art{% else %}Flash tatovering København · Ink & Art{% endif %}"
+  description: "{% if lang == 'en' %}Browse our flash tattoo designs — pre-drawn, ready to ink today at Ink & Art Copenhagen. Walk in from DKK 800.{% else %}Se vores flash-designs — pre-dragne motiver klar til at blive tatoveret i dag hos Ink & Art København. Walk-in fra 800 kr.{% endif %}"
+---
+<section class="flash">
+  <div class="flash__head">
+    <p class="flash__file">{{ "flash.indexFile" | t(lang) }}</p>
+    <h1 class="flash__title">{{ "flash.indexTitle" | t(lang) }}</h1>
+    <p class="flash__lead">{{ "flash.indexLead" | t(lang) }}</p>
+  </div>
+
+  {%- if flash.items and flash.items.length %}
+  <div class="flash__grid">
+    {%- for item in flash.items %}
+    <figure class="flash__card{% if item.available == false %} flash__card--taken{% endif %}">
+      {%- if item.src %}
+      <img src="/_assets/img/flash/{{ item.src }}"
+           alt="{{ item.alt[lang] if item.alt[lang] else item.alt.da }}"
+           loading="lazy"
+           decoding="async">
+      {%- else %}
+      <div class="flash__card-placeholder" aria-hidden="true">{{ item.style | upper if item.style else "FLASH" }}</div>
+      {%- endif %}
+      <figcaption class="flash__card-caption">
+        {%- if item.artist %}<span class="flash__card-artist">{{ item.artist }}</span>{% endif %}
+        {%- if item.available == false %}
+        <span class="flash__card-status flash__card-status--taken">{{ "flash.taken" | t(lang) }}</span>
+        {%- else %}
+        <span class="flash__card-status flash__card-status--available">{{ "flash.available" | t(lang) }}</span>
+        {%- endif %}
+      </figcaption>
+    </figure>
+    {%- endfor %}
+  </div>
+  {%- else %}
+  <p class="flash__coming-soon">{{ "flash.comingSoon" | t(lang) }}</p>
+  {%- endif %}
+
+  <div class="flash__prices">
+    <h2 class="flash__prices-title">{{ "flash.pricesTitle" | t(lang) }}</h2>
+    <dl class="flash__price-list">
+      <div class="flash__price-row">
+        <dt class="flash__price-label">{{ "flash.pricesFrom" | t(lang) }}</dt>
+        <dd class="flash__price-note">{{ "flash.pricesFromNote" | t(lang) }}</dd>
+      </div>
+      <div class="flash__price-row">
+        <dt class="flash__price-label">{{ "flash.pricesHour" | t(lang) }}</dt>
+        <dd class="flash__price-note">{{ "flash.pricesHourNote" | t(lang) }}</dd>
+      </div>
+    </dl>
+    <p class="flash__prices-footnote">{{ "flash.pricesFootnote" | t(lang) }}</p>
+    <a href="{% if lang == 'en' %}/en/walk-in/{% else %}/walk-in/{% endif %}" class="btn btn--primary">
+      {{ "flash.walkInCta" | t(lang) }} →
+    </a>
+  </div>
+</section>
+
+{# Flash page structured data #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "{% if lang == 'en' %}Flash Tattoo Gallery{% else %}Flash-galleri{% endif %}",
+  "url": "{{ site.url }}{{ page.url }}",
+  "description": "{% if lang == 'en' %}Pre-drawn flash tattoo designs ready to ink at Ink & Art Copenhagen.{% else %}Pre-dragne flash-designs klar til at blive tatoveret hos Ink & Art København.{% endif %}",
+  "isPartOf": { "@id": "{{ site.url }}/#business" }
+}
+</script>

@@ -1069,3 +1069,158 @@ button:focus-visible {
   .studio-video__bar { flex-direction: column; align-items: flex-start; gap: 4px; }
 }
 
+/* ----- 25. Flash-galleri ----- */
+.flash {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 80px) var(--pad-x);
+}
+.flash__head {
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+.flash__file {
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.5;
+  margin-bottom: 12px;
+}
+.flash__title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 6vw, 64px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+  margin-bottom: 20px;
+}
+.flash__lead {
+  font-size: clamp(15px, 1.5vw, 18px);
+  max-width: 56ch;
+  line-height: 1.55;
+  opacity: 0.75;
+}
+.flash__coming-soon {
+  font-family: var(--font-display);
+  font-size: clamp(14px, 1.5vw, 17px);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: clamp(40px, 6vw, 72px) 0;
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: clamp(48px, 7vw, 80px);
+}
+.flash__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2px;
+  margin-bottom: clamp(48px, 7vw, 80px);
+  border: 2px solid var(--ink);
+}
+.flash__card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: var(--paper);
+  margin: 0;
+}
+.flash__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.flash__card:hover img { transform: scale(1.03); }
+.flash__card--taken { opacity: 0.5; }
+.flash__card--taken img { filter: grayscale(1); }
+.flash__card-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: clamp(18px, 3vw, 28px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  opacity: 0.18;
+  padding: 16px;
+  text-align: center;
+}
+.flash__card-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transform: translateY(100%);
+  transition: transform 0.25s ease;
+}
+.flash__card:hover .flash__card-caption,
+.flash__card:focus-within .flash__card-caption { transform: translateY(0); }
+.flash__card--taken .flash__card-caption { transform: translateY(0); }
+.flash__card-status--available { color: var(--paper); opacity: 0.6; }
+.flash__card-status--taken { color: var(--red); }
+.flash__prices {
+  border-top: 2px solid var(--ink);
+  padding-top: clamp(32px, 5vw, 56px);
+}
+.flash__prices-title {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+.flash__price-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 20px;
+  border: 2px solid var(--ink);
+}
+.flash__price-row {
+  padding: clamp(16px, 2.5vw, 28px);
+  border-right: 2px solid var(--ink);
+}
+.flash__price-row:last-child { border-right: none; }
+.flash__price-label {
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  display: block;
+  margin-bottom: 6px;
+}
+.flash__price-note {
+  font-size: clamp(13px, 1.2vw, 15px);
+  opacity: 0.6;
+  line-height: 1.4;
+}
+.flash__prices-footnote {
+  font-size: 13px;
+  opacity: 0.55;
+  margin-bottom: 28px;
+}
+@media (max-width: 599px) {
+  .flash__price-list { grid-template-columns: 1fr; }
+  .flash__price-row { border-right: none; border-bottom: 2px solid var(--ink); }
+  .flash__price-row:last-child { border-bottom: none; }
+}
+
